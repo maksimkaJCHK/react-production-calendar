@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Example testing Первый тест 1`] = `
+<div
+  id="example"
+>
+  <div
+    id="disabled"
+  >
+    Для примера
+  </div>
+</div>
+`;

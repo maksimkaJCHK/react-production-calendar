@@ -1,0 +1,88 @@
+%colWidth {
+  width: 14.28571428571429%;
+}
+.calendar {
+  width: 100%;
+  text-align: center;
+  border: 1px solid #000;
+  .prev,
+  .next {
+    div {
+      opacity: .4;
+    }
+    &:hover {
+      .calendar-body-hint {
+        top: -3000px;
+        left: -3000px;
+      }
+    }
+  }
+  .curDate {
+    .calendar-body-day {
+      background-color: orange;
+    }
+  }
+  .holiday,
+  .output {
+    background-color: #ffcfcf;
+  }
+  &-head {
+    padding: 20px 0;
+  }
+  &-day {
+    display: flex;
+    width: 100%;
+    &-col {
+      @extend %colWidth;
+      padding: 2% 0;
+      border: 1px solid #000;
+      border-right: none;
+      border-bottom: none;
+      &:first-of-type {
+        border-left: none;
+      }
+    }
+  }
+  &-body {
+    &-day {
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      display: inline-block;
+      border-radius: 50%;
+    }
+    &-row {
+      width: 100%;
+      display: flex;
+    }
+    &-col {
+      @extend %colWidth;
+      position: relative;
+      padding: 1% 0;
+      border: 1px solid #000;
+      border-right: none;
+      border-bottom: none;
+      &:first-of-type {
+        border-left: none;
+      }
+      &:hover {
+        z-index: 2;
+        .calendar-body-hint {
+          top: 50px;
+          left: 50%;
+          margin-left: -110px;
+        }
+      }
+    }
+    &-hint {
+      top: -3000px;
+      left: -3000px;
+      position: absolute;
+      width: 200px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+  }
+}
