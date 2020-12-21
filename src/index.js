@@ -28,9 +28,9 @@ const ExampleCalendar = () => {
 
   return (
     <div className = 'exampleCalendar'>
-      <button onClick = { imcMonth }>Уменьшить месяц</button>
-      <button onClick = { changeDatWeek }>Изменить начальный день недели</button>
-      <button onClick = { decMonth }>Увеличить месяц</button>
+      <button className = 'mdc-button' onClick = { imcMonth }>Уменьшить месяц</button>
+      <button className = 'mdc-button' onClick = { changeDatWeek }>Изменить начальный день недели</button>
+      <button className = 'mdc-button' onClick = { decMonth }>Увеличить месяц</button>
       <div className = 'exampleCalendar-wrap'>
         <Calendar lang = 'ru' year = '2020' month = { month } visibleYear = { true } startDayWeek = { dayWeek } holiday = { holiday } />
       </div>

@@ -1,10 +1,38 @@
-%colWidth {
-  width: 14.28571428571429%;
-}
+@import './color-palette.scss';
+
 .calendar {
+  // Цвет текста календаря
+  $calendarTextColor: #000;
+
+  // Цвет бордеров
+  $calendarBorder: 1px solid $grey-800;
+  $cellBorder: $calendarBorder;
+  $calendarDayBorder: $calendarBorder;
+
+  // Фон заголовка календаря
+  $headBG: $amber-a700;
+
+  // Фон Дней недели
+  $calendarDayBG: $yellow-700;
+
+  // Фоны обычного дня, выходного дня и праздников
+  $dayBG: $yellow-400;
+  $outputBF: $red-a400;
+  $holidatBG: $red-a400;
+
+  // Настройки текущей даты
+  $currDayCellBG: null;
+  $currDayBG: $yellow-900;
+
+  color: $calendarTextColor;
   width: 100%;
   text-align: center;
-  border: 1px solid #000;
+  border: $calendarBorder;
+
+  %colWidth {
+    width: 14.28571428571429%;
+  }
+
   .prev,
   .next {
     div {
@@ -18,16 +46,20 @@
     }
   }
   .curDate {
+    background: $currDayCellBG;
     .calendar-body-day {
-      background-color: orange;
+      background-color: $currDayBG;
     }
   }
-  .holiday,
+  .holiday {
+    background-color: $holidatBG
+  }
   .output {
-    background-color: #ffcfcf;
+    background-color: $outputBF;
   }
   &-head {
     padding: 20px 0;
+    background: $headBG;
   }
   &-day {
     display: flex;
@@ -35,7 +67,8 @@
     &-col {
       @extend %colWidth;
       padding: 2% 0;
-      border: 1px solid #000;
+      background: $calendarDayBG;
+      border: $calendarDayBorder;
       border-right: none;
       border-bottom: none;
       &:first-of-type {
@@ -59,9 +92,10 @@
       @extend %colWidth;
       position: relative;
       padding: 1% 0;
-      border: 1px solid #000;
+      border: $cellBorder;
       border-right: none;
       border-bottom: none;
+      background-color: $dayBG;
       &:first-of-type {
         border-left: none;
       }

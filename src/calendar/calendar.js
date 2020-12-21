@@ -3,7 +3,7 @@ import CalendarHead from './components/calendarHead';
 import CalendarDay  from './components/calendarDay';
 import CalendarBody from './components/calendarBody';
 
-import './calendar.scss';
+import './styles/calendar.scss';
 
 const Calender = (props) => {
   let { lang = 'ru', year = '2020', month = '1', visibleYear =  true, startDayWeek = 1, holiday = []} = props;
