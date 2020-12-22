@@ -32,7 +32,7 @@ const ExampleCalendar = () => {
       <button className = 'mdc-button' onClick = { changeDatWeek }>Изменить начальный день недели</button>
       <button className = 'mdc-button' onClick = { decMonth }>Увеличить месяц</button>
       <div className = 'exampleCalendar-wrap'>
-        <Calendar lang = 'ru' year = '2020' month = { month } visibleYear = { true } startDayWeek = { dayWeek } holiday = { holiday } />
+        <Calendar lang = 'ru' year = '2021' month = { month } visibleYear = { true } startDayWeek = { dayWeek } holiday = { holiday } />
       </div>
     </div>
   )
@@ -42,42 +42,42 @@ ReactDOM.render(
   <div>
     <ExampleCalendar />
     <div className = 'exampleCalendar-group'>
-      <h2>Календарь на 2020 год</h2>
+      <h2>Календарь на 2021 год</h2>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '1' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '1' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '2' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '2' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '3' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '3' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '4' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '4' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '5' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '5' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '6' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '6' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '7' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '7' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '8' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '8' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '9' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '9' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '10' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '10' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '11' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '11' holiday = { holiday } />
       </div>
       <div className = 'exampleCalendar-item'>
-        <Calendar visibleYear = { false } year = '2020' month = '12' holiday = { holiday } />
+        <Calendar visibleYear = { false } year = '2021' month = '12' holiday = { holiday } />
       </div>
     </div>
   </div>,

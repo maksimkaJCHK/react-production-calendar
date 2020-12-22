@@ -1,76 +1,91 @@
 @import './color-palette.scss';
 
 .calendar {
-  // Цвет текста календаря
-  $calendarTextColor: #000;
 
-  // Цвет бордеров
+  // Цвет текста календаря, цвет бордеров
+  $calendarTextColor: #000;
   $calendarBorder: 1px solid $grey-800;
   $cellBorder: $calendarBorder;
   $calendarDayBorder: $calendarBorder;
+  $calendarFont: 16px/120% 'RobotoDraft';
 
-  // Фон заголовка календаря
-  $headBG: $amber-a700;
+  // Фон заголовка календаря, его внутренние отступы, параметры шрифта
+  $headBG: $yellow-300;
+  $headPadding: 20px 0;
+  $headFont: null;
 
-  // Фон Дней недели
-  $calendarDayBG: $yellow-700;
+  // Фон Дней недели, внутренние отступы
+  $calendarDayBG: $lime-300;
+  $calendarDayPadding: 4% 0;
+  $calendarDayFont: null;
 
-  // Фоны обычного дня, выходного дня и праздников
-  $dayBG: $yellow-400;
-  $outputBF: $red-a400;
+  // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
+  $dayBG: $light-green-300;
+  $outputBF: $red-a200;
   $holidatBG: $red-a400;
+  $cellPadding: 2% 0;
+  $dayWidth: 34px;
+  $dayHeight: 34px;
+  $dayFont: null;
 
   // Настройки текущей даты
   $currDayCellBG: null;
-  $currDayBG: $yellow-900;
+  $currDayBG: $yellow-300;
+
+  // Подсказка, все стили которые с ней связаны
+  $hintWidth: 280px;
+  $hintPadding: 15px;
+  $hintBorderRadius: 10px;
+  $hintBoxShadow: 0 0 10px rgba(0,0,0,0.5);
+  $hintBG: $lime-300;
+  $hintTitleColor: null;
+  $hintTitleFont: 16px/120% 'RobotoDraft';
+  $hintTitleMargin: 0 0 5px;
+  $hintDescFont: 14px/140% 'RobotoDraft';
+  $hintDescColor: null;
+
+  // Не активные дни перед выбранным месяцем и после него
+  $noActiveDayBG: null;
+  $noActiveDayOpacity: .4;
 
   color: $calendarTextColor;
   width: 100%;
   text-align: center;
   border: $calendarBorder;
+  font: $calendarFont;
 
   %colWidth {
     width: 14.28571428571429%;
   }
 
-  .prev,
-  .next {
-    div {
-      opacity: .4;
-    }
-    &:hover {
-      .calendar-body-hint {
-        top: -3000px;
-        left: -3000px;
-      }
-    }
-  }
   .curDate {
     background: $currDayCellBG;
     .calendar-body-day {
       background-color: $currDayBG;
     }
   }
-  .holiday {
-    background-color: $holidatBG
-  }
   .output {
     background-color: $outputBF;
   }
+  .holiday {
+    background-color: $holidatBG
+  }
   &-head {
-    padding: 20px 0;
+    padding: $headPadding;
     background: $headBG;
+    font: $headFont;
   }
   &-day {
     display: flex;
     width: 100%;
     &-col {
       @extend %colWidth;
-      padding: 2% 0;
+      padding: $calendarDayPadding;
       background: $calendarDayBG;
       border: $calendarDayBorder;
       border-right: none;
       border-bottom: none;
+      font: $calendarDayFont;
       &:first-of-type {
         border-left: none;
       }
@@ -78,11 +93,12 @@
   }
   &-body {
     &-day {
-      width: 34px;
-      height: 34px;
-      line-height: 34px;
+      width: $dayWidth;
+      height: $dayHeight;
+      line-height: $dayHeight;
       display: inline-block;
       border-radius: 50%;
+      font: $dayFont;
     }
     &-row {
       width: 100%;
@@ -91,7 +107,7 @@
     &-col {
       @extend %colWidth;
       position: relative;
-      padding: 1% 0;
+      padding: $cellPadding;
       border: $cellBorder;
       border-right: none;
       border-bottom: none;
@@ -102,9 +118,9 @@
       &:hover {
         z-index: 2;
         .calendar-body-hint {
-          top: 50px;
+          top: 100%;
           left: 50%;
-          margin-left: -110px;
+          margin-left: -$hintWidth/2;
         }
       }
     }
@@ -112,11 +128,33 @@
       top: -3000px;
       left: -3000px;
       position: absolute;
-      width: 200px;
-      padding: 10px;
-      border-radius: 5px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      width: $hintWidth;
+      padding: $hintPadding;
+      border-radius: $hintBorderRadius;
+      background-color: $hintBG;
+      box-shadow: $hintBoxShadow;
+    }
+    &-title {
+      color: $hintTitleColor;
+      font: $hintTitleFont;
+      margin: $hintTitleMargin;
+    }
+    &-desc {
+      color: $hintDescColor;
+      font: $hintDescFont;
+    }
+  }
+  .prev,
+  .next {
+    background: $noActiveDayBG;
+    div {
+      opacity: $noActiveDayOpacity;
+    }
+    &:hover {
+      .calendar-body-hint {
+        top: -3000px;
+        left: -3000px;
+      }
     }
   }
 }
