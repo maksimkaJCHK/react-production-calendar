@@ -26,6 +26,7 @@ const buildHolidayCal = (holiday, days) => {
             ...day,
             className: [
               ...day.className,
+              findHoliday[0].class,
               'holiday'
             ],
             hint: [
@@ -43,12 +44,15 @@ const buildHolidayCal = (holiday, days) => {
 
   return funkDays;
 }
+
 export const dayForWeek = (year, month, stopDay, start, holiday) => {
   let days = [[]];
   let calcCurD = calcCurDate(month, year);
+  let pMonth = (month - 1) < 0 ? 11 : month - 1;
+  let nMonth = (month + 1) > 11 ? 0 : month + 1;
   holiday = holiday.filter(el => {
-    return el.month == month || (el.month == month - 1) || (el.month == month + 1);
-  })
+    return el.month == month || el.month == pMonth || el.month == nMonth
+  });
   holiday = holiday.map(el => {
     return {
       ...el,
@@ -59,8 +63,9 @@ export const dayForWeek = (year, month, stopDay, start, holiday) => {
   for(let i = 1; i <= stopDay; i++) {
     let countDay = new Date(year, month, i);
     let className = '';
+    countDay.setHours(0, 0, 0, 0);
     className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
-    if(calcCurD.isCurDate && countDay.getTime() == calcCurD.curDate) {
+    if(countDay.getTime() == calcCurD.curDate) {
       className += ' curDate';
     }
     let item = [];
@@ -113,7 +118,8 @@ export const buildPrevDay = (year, month, firstDay, start) => {
   for(let i = 0; i < stopCount; i++) {
     let countDay = new Date(year, month, (-i));
     let className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
-    if(calcCurD.isCurDate && countDay.getTime() == calcCurD.curDate) {
+    countDay.setHours(0, 0, 0, 0);
+    if(countDay.getTime() == calcCurD.curDate) {
       className += ' curDate';
     }
     prevDays.unshift({
@@ -138,6 +144,7 @@ export const buildNextDay = (year, month, countDate, start) => {
   for(let i = 0; i < stopCount; i++) {
     let countDay = new Date(year, month + 1, (i + 1));
     let className = '';
+    countDay.setHours(0, 0, 0, 0);
     className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
     if(calcCurD.isCurDate && countDay.getTime() == calcCurD.curDate) {
       className += ' curDate';
@@ -151,10 +158,6 @@ export const buildNextDay = (year, month, countDate, start) => {
   }
 
   return prevDays;
-}
-
-export const buildHoliday = () => {
-
 }
 
 export const dayInMonth = (year, numbMonth) => {

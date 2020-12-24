@@ -3,7 +3,6 @@ import { dayInMonth, dayForWeek } from '../services/time';
 
 const CalendarBody = ( { year, month, startDayWeek, holiday }) => {
   let stopCount = dayInMonth(year, month);
-
   let buildDays = dayForWeek(year, month, stopCount, startDayWeek, holiday);
 
   return (
@@ -13,9 +12,7 @@ const CalendarBody = ( { year, month, startDayWeek, holiday }) => {
           return (
             <div key = { count } className = 'calendar-body-row'>
               { week.map(el => {
-
                 return (
-                  /*<div className = 'calendar-body-col' key = { el.id }>{ el.day }</div>*/
                   <div className = { el.className.join(' ') } key = { el.id }>
                     <div className = 'calendar-body-day'>
                       { el.day }

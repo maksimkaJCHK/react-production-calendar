@@ -3,6 +3,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 1,
+    class: '',
     hint: [
       {
         title: 'Новогодние каникулы',
@@ -13,6 +14,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 2,
+    class: '',
     hint: [
       {
         title: 'Новогодние каникулы',
@@ -23,6 +25,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 3,
+    class: '',
     hint: [
       {
         title: 'Новогодние каникулы',
@@ -33,6 +36,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 4,
+    class: '',
     hint: [
       {
         title: 'Новогодние каникулы',
@@ -43,6 +47,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 5,
+    class: '',
     hint: [
       {
         title: 'Новогодние каникулы',
@@ -53,6 +58,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 6,
+    class: '',
     hint: [
       {
         title: 'Новогодние каникулы',
@@ -63,6 +69,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 7,
+    class: '',
     hint: [
       {
         title: 'Рождество Христово',
@@ -73,6 +80,7 @@ let holiday = [
     year: 2021,
     month: 0,
     day: 8,
+    class: '',
     hint: [
       {
         title: 'Новогодние каникулы',
@@ -82,7 +90,19 @@ let holiday = [
   }, {
     year: 2021,
     month: 1,
+    day: 20,
+    class: 'workDay',
+    hint: [
+      {
+        title: 'Рабочий день',
+        desc: 'Этот день будет рабочим, зато понедельник будет выходным'
+      }
+    ]
+  }, {
+    year: 2021,
+    month: 1,
     day: 22,
+    class: '',
     hint: [
       {
         title: 'Выходной день',
@@ -93,6 +113,7 @@ let holiday = [
     year: 2021,
     month: 1,
     day: 23,
+    class: '',
     hint: [
       {
         title: 'День защитника отечества',
@@ -103,6 +124,7 @@ let holiday = [
     year: 2021,
     month: 2,
     day: 8,
+    class: '',
     hint: [
       {
         title: '8 марта',
@@ -113,6 +135,7 @@ let holiday = [
     year: 2021,
     month: 4,
     day: 1,
+    class: '',
     hint: [
       {
         title: '1 мая',
@@ -123,6 +146,7 @@ let holiday = [
     year: 2021,
     month: 4,
     day: 3,
+    class: '',
     hint: [
       {
         title: 'Выходной день',
@@ -133,6 +157,7 @@ let holiday = [
     year: 2021,
     month: 4,
     day: 9,
+    class: '',
     hint: [
       {
         title: '9 мая – День Победы',
@@ -143,6 +168,7 @@ let holiday = [
     year: 2021,
     month: 4,
     day: 10,
+    class: '',
     hint: [
       {
         title: 'Выходной день',
@@ -153,6 +179,7 @@ let holiday = [
     year: 2021,
     month: 5,
     day: 12,
+    class: '',
     hint: [
       {
         title: 'День России',
@@ -163,6 +190,7 @@ let holiday = [
     year: 2021,
     month: 5,
     day: 14,
+    class: '',
     hint: [
       {
         title: 'Выходной день',
@@ -173,6 +201,7 @@ let holiday = [
     year: 2021,
     month: 10,
     day: 4,
+    class: '',
     hint: [
       {
         title: 'День народного единства',
@@ -183,6 +212,7 @@ let holiday = [
     year: 2021,
     month: 10,
     day: 5,
+    class: '',
     hint: [
       {
         title: 'Выходной день',
@@ -193,6 +223,7 @@ let holiday = [
     year: 2021,
     month: 11,
     day: 31,
+    class: '',
     hint: [
       {
         title: 'Выходной день',

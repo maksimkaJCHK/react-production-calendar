@@ -6,5 +6,6 @@ module.exports = {
     path: paths.build,
     filename: 'main.js',
   },
-  target: ['web', 'es5'],
+  //target: ['web', 'es5'],
+  target: 'web'
 }
