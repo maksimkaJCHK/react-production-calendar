@@ -22,5 +22,36 @@ module.exports = merge(common, services, {
         },
       }
     })],
+    splitChunks: {
+      chunks: 'async',
+      minSize: 134000,
+      minRemainingSize: 0,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '-',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module, chunks, cacheGroupKey) {
+           const allChunksNames = chunks.map((item) => item.name).join('-');
+            return `${cacheGroupKey}-${allChunksNames}`;
+          },
+          chunks: 'all'
+        },
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
 })
