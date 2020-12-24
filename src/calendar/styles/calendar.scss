@@ -2,12 +2,13 @@
 
 .calendar {
 
-  // Цвет текста календаря, цвет бордеров
+  // Цвет текста календаря, цвет бордеров, цвет подложки
   $calendarTextColor: #000;
   $calendarBorder: 1px solid $grey-800;
   $cellBorder: $calendarBorder;
   $calendarDayBorder: $calendarBorder;
   $calendarFont: 16px/120% 'RobotoDraft';
+  $calendarBG: null;
 
   // Фон заголовка календаря, его внутренние отступы, параметры шрифта
   $headBG: $lime-200;
@@ -55,6 +56,7 @@
   width: 100%;
   text-align: center;
   border: $calendarBorder;
+  background: $calendarBG;
   font: $calendarFont;
 
   %colWidth {
