@@ -1,0 +1,257 @@
+.calendar {
+  &.january,
+  &.february,
+  &.december {
+    @import 'var_winter.scss';
+    color: $calendarTextColor;
+    border: $calendarBorder;
+    background: $calendarBG;
+    .calendar {
+      &-head {
+        background: $headBG;
+      }
+      &-day {
+        &-col {
+          background: $calendarDayBG;
+          border: $calendarDayBorder;
+          border-right: none;
+          border-bottom: none;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+      }
+      &-body {
+        &-col {
+          border: $cellBorder;
+          border-right: none;
+          border-bottom: none;
+          background-color: $dayBG;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+        &-hint {
+          background-color: $hintBG;
+        }
+        &-title {
+          color: $hintTitleColor;
+        }
+        &-desc {
+          color: $hintDescColor;
+        }
+      }
+    }
+    .curDate {
+      background: $currDayCellBG;
+      .calendar-body-day {
+        background-color: $currDayBG;
+      }
+    }
+    .output {
+      background-color: $outputBF;
+    }
+    .holiday {
+      background-color: $holidatBG
+    }
+    .prev,
+    .next {
+      background: $noActiveDayBG;
+    }
+    .workDay  {
+      background-color: $workdayBG;
+    }
+  }
+
+  &.june,
+  &.july,
+  &.august {
+    @import './var_summer.scss';
+    color: $calendarTextColor;
+    border: $calendarBorder;
+    background: $calendarBG;
+    .calendar {
+      &-head {
+        background: $headBG;
+      }
+      &-day {
+        &-col {
+          background: $calendarDayBG;
+          border: $calendarDayBorder;
+          border-right: none;
+          border-bottom: none;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+      }
+      &-body {
+        &-col {
+          border: $cellBorder;
+          border-right: none;
+          border-bottom: none;
+          background-color: $dayBG;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+        &-hint {
+          background-color: $hintBG;
+        }
+        &-title {
+          color: $hintTitleColor;
+        }
+        &-desc {
+          color: $hintDescColor;
+        }
+      }
+    }
+    .curDate {
+      background: $currDayCellBG;
+      .calendar-body-day {
+        background-color: $currDayBG;
+      }
+    }
+    .output {
+      background-color: $outputBF;
+    }
+    .holiday {
+      background-color: $holidatBG
+    }
+    .prev,
+    .next {
+      background: $noActiveDayBG;
+    }
+    .workDay  {
+      background-color: $workdayBG;
+    }
+  }
+
+  &.september,
+  &.october,
+  &.november {
+    @import './var_autumn.scss';
+    color: $calendarTextColor;
+    border: $calendarBorder;
+    background: $calendarBG;
+    .calendar {
+      &-head {
+        background: $headBG;
+      }
+      &-day {
+        &-col {
+          background: $calendarDayBG;
+          border: $calendarDayBorder;
+          border-right: none;
+          border-bottom: none;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+      }
+      &-body {
+        &-col {
+          border: $cellBorder;
+          border-right: none;
+          border-bottom: none;
+          background-color: $dayBG;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+        &-hint {
+          background-color: $hintBG;
+        }
+        &-title {
+          color: $hintTitleColor;
+        }
+        &-desc {
+          color: $hintDescColor;
+        }
+      }
+    }
+    .curDate {
+      background: $currDayCellBG;
+      .calendar-body-day {
+        background-color: $currDayBG;
+      }
+    }
+    .output {
+      background-color: $outputBF;
+    }
+    .holiday {
+      background-color: $holidatBG
+    }
+    .prev,
+    .next {
+      background: $noActiveDayBG;
+    }
+    .workDay  {
+      background-color: $workdayBG;
+    }
+  }
+
+  &.march,
+  &.april,
+  &.may {
+    @import './var_spring.scss';
+    color: $calendarTextColor;
+    border: $calendarBorder;
+    background: $calendarBG;
+    .calendar {
+      &-head {
+        background: $headBG;
+      }
+      &-day {
+        &-col {
+          background: $calendarDayBG;
+          border: $calendarDayBorder;
+          border-right: none;
+          border-bottom: none;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+      }
+      &-body {
+        &-col {
+          border: $cellBorder;
+          border-right: none;
+          border-bottom: none;
+          background-color: $dayBG;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+        &-hint {
+          background-color: $hintBG;
+        }
+        &-title {
+          color: $hintTitleColor;
+        }
+        &-desc {
+          color: $hintDescColor;
+        }
+      }
+    }
+    .curDate {
+      background: $currDayCellBG;
+      .calendar-body-day {
+        background-color: $currDayBG;
+      }
+    }
+    .output {
+      background-color: $outputBF;
+    }
+    .holiday {
+      background-color: $holidatBG
+    }
+    .prev,
+    .next {
+      background: $noActiveDayBG;
+    }
+    .workDay  {
+      background-color: $workdayBG;
+    }
+  }
+}
