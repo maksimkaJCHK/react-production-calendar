@@ -10,6 +10,6 @@ module.exports = {
     path: paths.build,
     filename: '[name].js',
   },
-  //target: ['web', 'es5'],
-  target: 'web'
+  target: ['web', 'es5'],
+  //target: 'web'
 }
