@@ -3,6 +3,7 @@ const common = require('./services/webpack.common.js')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -91,6 +92,12 @@ module.exports = merge(common, {
           "sass-loader" 
         ]
       }, {
+        test: /\.twig$/,
+        use: [
+          'raw-loader',
+          'twig-html-loader'
+        ]
+      }, {
         test: /\.(png|jpg|gif|svg)$/i,
         use: [
           {
@@ -109,5 +116,26 @@ module.exports = merge(common, {
       filename: '../css/[name].css',
       chunkFilename: '[id].css',
     }),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../index.html',
+        template: 'templates/index.twig',
+        inject: false
+      },
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../production_calendar.html',
+        template: 'templates/production_calendar.twig',
+        inject: false
+      }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../seasons.html',
+        template: 'templates/seasons.twig',
+        inject: false
+      }
+    )
   ],
 })
