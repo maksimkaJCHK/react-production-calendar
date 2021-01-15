@@ -1,0 +1,128 @@
+@import './color-palette.scss';
+
+.dateCheck {
+  .calendar {
+    user-select: none;
+    .selected {
+      background-color: #f97d95;
+    }
+    .prev,
+    .next {
+      cursor: text;
+      &:hover {
+        background-color: $light-green-300;
+      }
+      &.output {
+        &:hover {
+          background-color: $red-a200;
+        }
+      }
+    }
+    &-body-col {
+      cursor: pointer;
+      &:hover {
+        background-color: #f97d95;
+      }
+    }
+  }
+}
+
+form {
+  max-width: 600px;
+  margin: 30px auto;
+  position: relative;
+  textarea,
+  input[type="text"] {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    appearance: none;
+    outline: none;
+    font: 16px/120% 'RobotoDraft';
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    &.focus,
+    &:focus {
+      color: #212529;
+      border-color: #86b7fe;
+      box-shadow: 0 0 0 2px rgba(13,110,253,.25);
+    }
+    &:placeholder {
+      color: #6c757d;
+      opacity: 1;
+    }
+  }
+  .alarm {
+    .chosenDate {
+      color: $red-a400
+    }
+    textarea,
+    input[type="text"] {
+      border-color: $red-a400;
+      &:focus {
+        box-shadow: 0 0 0 2px rgba(255, 0, 0, .25);
+      }
+    }
+  }
+  textarea {
+    height: 186px;
+    resize: vertical;
+  }
+  .row {
+    text-align: left;
+    margin: 20px 0;
+  }
+  .hint {
+    color: $red-a400
+  }
+  .space-between-align {
+    display: flex;
+    justify-content: space-between;
+  }
+  .dateCheck {
+    width: 100%;
+    margin: 0 0 30px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  }
+  .nextM,
+  .prevM {
+    user-select: none;
+  }
+  .nextM,
+  .prevM {
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    background-color: $orange-a200;
+    transition: background-color .15s ease-in-out;
+    &:hover {
+      background-color: $orange-a400;
+    }
+    &:active {
+      background-color: $orange-a700;
+    }
+  }
+  .prevM {
+    left: 30px;
+  }
+  .nextM {
+    right: 30px;
+  }
+}

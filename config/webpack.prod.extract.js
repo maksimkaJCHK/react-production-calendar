@@ -136,6 +136,13 @@ module.exports = merge(common, {
         template: 'templates/seasons.twig',
         inject: false
       }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../birthday_schedule.html',
+        template: 'templates/birthday_schedule.twig',
+        inject: false
+      }
     )
   ],
 })

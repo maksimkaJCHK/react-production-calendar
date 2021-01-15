@@ -2,7 +2,7 @@
   &.january,
   &.february,
   &.december {
-    @import 'var_winter.scss';
+    @import './season_var/var_winter.scss';
     color: $calendarTextColor;
     border: $calendarBorder;
     background: $calendarBG;
@@ -66,7 +66,7 @@
   &.june,
   &.july,
   &.august {
-    @import './var_summer.scss';
+    @import './season_var/var_summer.scss';
     color: $calendarTextColor;
     border: $calendarBorder;
     background: $calendarBG;
@@ -130,7 +130,7 @@
   &.september,
   &.october,
   &.november {
-    @import './var_autumn.scss';
+    @import './season_var/var_autumn.scss';
     color: $calendarTextColor;
     border: $calendarBorder;
     background: $calendarBG;
@@ -194,7 +194,7 @@
   &.march,
   &.april,
   &.may {
-    @import './var_spring.scss';
+    @import './season_var/var_spring.scss';
     color: $calendarTextColor;
     border: $calendarBorder;
     background: $calendarBG;

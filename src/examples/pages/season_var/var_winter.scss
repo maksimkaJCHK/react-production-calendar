@@ -1,4 +1,4 @@
-@import './color-palette.scss';
+@import '../color-palette.scss';
 
 // Цвет текста календаря, цвет бордеров, цвет подложки
 $calendarTextColor: #000;
@@ -8,25 +8,25 @@ $calendarDayBorder: $calendarBorder;
 $calendarBG: null;
 
 // Фон заголовка календаря, его внутренние отступы, параметры шрифта
-$headBG: $green-500;
+$headBG: $blue-600;
 
 // Фон Дней недели, внутренние отступы
-$calendarDayBG: $green-a700;
+$calendarDayBG: $blue-500;
 
 // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
-$dayBG: $green-a400;
+$dayBG: $blue-200;
 $outputBF: $red-a200;
 $holidatBG: $red-a400;
 
 // Если вдруг правительство перенесет выходной день с субботы или воскресенья на будний день, и этот день станет рабочим, то эта переменная задает такой цвет, я ее сделаю чуть ярче, чем обычный будний день, чтобы было заметно, что мы работаем.
-$workdayBG: $green-600;
+$workdayBG: $blue-400;
 
 // Настройки текущей даты
 $currDayCellBG: null;
-$currDayBG: $yellow-300;
+$currDayBG: $blue-500;
 
 // Подсказка, все стили которые с ней связаны
-$hintBG: $green-a700;
+$hintBG: $blue-a200;
 $hintTitleColor: null;
 $hintDescColor: null;
 

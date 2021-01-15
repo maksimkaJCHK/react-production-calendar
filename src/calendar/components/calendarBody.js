@@ -1,7 +1,7 @@
 import React from 'react';
 import { dayInMonth, dayForWeek } from '../services/time';
 
-const CalendarBody = ( { year, month, startDayWeek, holiday }) => {
+const CalendarBody = ( { year, month, startDayWeek, holiday, handleClick, handleMouseOver, handleMouseOut }) => {
   let stopCount = dayInMonth(year, month);
   let buildDays = dayForWeek(year, month, stopCount, startDayWeek, holiday);
 
@@ -13,11 +13,12 @@ const CalendarBody = ( { year, month, startDayWeek, holiday }) => {
             <div key = { count } className = 'calendar-body-row'>
               { week.map(el => {
                 return (
-                  <div className = { el.className.join(' ') } key = { el.id }>
+                  <div className = { el.className.join(' ') } key = { el.id } onClick = { () => handleClick(el.time) } onMouseOver = { () => handleMouseOver(el.time) } onMouseOut = { () => handleMouseOut(el.time) }>
                     <div className = 'calendar-body-day'>
                       { el.day }
                     </div>
-                    { el.hint.map((el, count) => {
+                    { el.hint.length
+                     ? el.hint.map((el, count) => {
                         return (
                           <div className = 'calendar-body-hint' key = { count }>
                             <div className = 'calendar-body-title'>
@@ -29,6 +30,7 @@ const CalendarBody = ( { year, month, startDayWeek, holiday }) => {
                           </div>
                         )
                       })
+                      : null
                     }
                   </div>
                 )

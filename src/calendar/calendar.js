@@ -6,7 +6,7 @@ import { monthClass } from './services/monthClass';
 import './styles/calendar.scss';
 
 const Calender = (props) => {
-  let { lang = 'ru', year = '2020', month = '1', visibleYear =  true, startDayWeek = 1, holiday = []} = props;
+  let { lang = 'ru', year = '2021', month = '1', visibleYear =  true, startDayWeek = 1, holiday = [], handleClick = () => null, handleMouseOver = () => null, handleMouseOut = () => null } = props;
 
   let calMonth = month - 1;
   let calendarClass = `calendar ${monthClass[calMonth]}`;
@@ -15,7 +15,7 @@ const Calender = (props) => {
     <div className = { calendarClass }>
       <CalendarHead lang = { lang } year = { year } month = { calMonth } visibleYear = { visibleYear }  />
       <CalendarDay startDayWeek = { startDayWeek } lang = { lang } />
-      <CalendarBody startDayWeek = { startDayWeek } year = { year } month = { calMonth } holiday = { holiday } />
+      <CalendarBody startDayWeek = { startDayWeek } year = { year } month = { calMonth } holiday = { holiday } handleClick = { handleClick } handleMouseOver = { handleMouseOver } handleMouseOut = { handleMouseOut } />
     </div>
   )
 }

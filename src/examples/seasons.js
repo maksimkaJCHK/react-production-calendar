@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Calendar from './calendar/calendar';
-import holiday from './holidays/holiday';
+import Calendar from '../index';
+import holiday from '../holidays/holiday';
 
-import './exampleCalendar.scss';
+import './pages/exampleCalendar.scss';
+import './pages/seasons.scss';
 
 const node = document.getElementById('app');
 
-const ProductionCalendar = () => {
+const SeasonsCalendar = () => {
 
   let [ dayWeek, setDayWeek ] = useState(1);
 
@@ -64,6 +65,6 @@ const ProductionCalendar = () => {
 }
 
 ReactDOM.render(
-  <ProductionCalendar />,
+  <SeasonsCalendar />,
   node
 )

@@ -1,5 +1,6 @@
 .exampleCalendar {
   text-align: center;
+  font-size: 16px;
   font-family: 'RobotoDraft';
   &-wrap {
     width: 100%;
@@ -47,26 +48,24 @@
     border: none;
     outline: none;
     line-height: inherit;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
-    -webkit-appearance: none;
+    appearance: none;
     overflow: visible;
     vertical-align: middle;
     border-radius: 4px;
     background-color: #fdd835;
+    transition: background-color .15s ease-in-out, box-shadow .15s ease-in-out;
   }
   .mdc-button::-moz-focus-inner {
     padding: 0;
     border: 0;
   }
-  .mdc-button:active {
-    outline: none;
-  }
   .mdc-button:hover {
     cursor: pointer;
     background-color: #fbc02d;
+  }
+  .mdc-button:active {
+    background-color: #f2c80d;
   }
   .mdc-button:disabled {
     background-color: transparent;

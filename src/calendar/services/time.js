@@ -13,21 +13,19 @@ const calcCurDate = (month, year) => {
 }
 
 const buildHolidayCal = (holiday, days) => {
-  let funkHoliday = [...holiday];
-  let funkDays = [...days];
+  let funkHoliday = [ ...holiday ];
+  let funkDays = [ ...days ];
 
   funkDays = funkDays.map(week => {
     return [
       ...week.map(day => {
         let findHoliday = funkHoliday.filter(holEl => holEl.id == day.id);
-
         if(findHoliday.length) {
           return {
             ...day,
             className: [
               ...day.className,
-              findHoliday[0].class,
-              'holiday'
+              findHoliday[0].class ? findHoliday[0].class : 'holiday',
             ],
             hint: [
               ...day.hint,
@@ -50,16 +48,20 @@ export const dayForWeek = (year, month, stopDay, start, holiday) => {
   let calcCurD = calcCurDate(month, year);
   let pMonth = (month - 1) < 0 ? 11 : month - 1;
   let nMonth = (month + 1) > 11 ? 0 : month + 1;
-  holiday = holiday.filter(el => {
-    return el.month == month || el.month == pMonth || el.month == nMonth
-  });
-  holiday = holiday.map(el => {
-    return {
-      ...el,
-      id: new Date(el.year, el.month, el.day).setHours(0, 0, 0, 0)
-    }
-  });
-
+  if(holiday.length) {
+    holiday = holiday.filter(el => {
+      return el.month == month || el.month == pMonth || el.month == nMonth
+    });
+    holiday = holiday.map(el => {
+      return {
+        ...el,
+        class: el.class ? el.class : '',
+        hint: el.hint ? el.hint : [],
+        id: new Date(el.year, el.month, el.day).setHours(0, 0, 0, 0)
+      }
+      
+    });
+  }
   for(let i = 1; i <= stopDay; i++) {
     let countDay = new Date(year, month, i);
     let className = '';
@@ -83,8 +85,9 @@ export const dayForWeek = (year, month, stopDay, start, holiday) => {
       ...item,
       {
         id: countDay.getTime(),
+        time: countDay.getTime(),
         day: countDay.getDate(),
-        className: [...dayClass, className ],
+        className: [ ...dayClass, className ],
         hint: []
       }
     ]
@@ -124,6 +127,7 @@ export const buildPrevDay = (year, month, firstDay, start) => {
     }
     prevDays.unshift({
       id: countDay.getTime(),
+      time: countDay.getTime(),
       day: countDay.getDate(),
       className: [...dayClass, 'prev', className],
       hint: []
@@ -151,6 +155,7 @@ export const buildNextDay = (year, month, countDate, start) => {
     }
     prevDays.push({
       id: countDay.getTime(),
+      time: countDay.getTime(),
       day: countDay.getDate(),
       className: [...dayClass, 'next', className],
       hint: []

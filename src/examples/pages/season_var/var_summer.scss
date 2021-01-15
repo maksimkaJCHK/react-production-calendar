@@ -1,4 +1,4 @@
-@import './color-palette.scss';
+@import '../color-palette.scss';
 
 // Цвет текста календаря, цвет бордеров, цвет подложки
 $calendarTextColor: #000;
@@ -8,13 +8,13 @@ $calendarDayBorder: $calendarBorder;
 $calendarBG: null;
 
 // Фон заголовка календаря, его внутренние отступы, параметры шрифта
-$headBG: $teal-a700;
+$headBG: $green-500;
 
 // Фон Дней недели, внутренние отступы
-$calendarDayBG: $teal-a400;
+$calendarDayBG: $green-a700;
 
 // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
-$dayBG: $teal-a200;
+$dayBG: $green-a400;
 $outputBF: $red-a200;
 $holidatBG: $red-a400;
 
@@ -26,7 +26,7 @@ $currDayCellBG: null;
 $currDayBG: $yellow-300;
 
 // Подсказка, все стили которые с ней связаны
-$hintBG: $teal-a400;
+$hintBG: $green-a700;
 $hintTitleColor: null;
 $hintDescColor: null;
 
