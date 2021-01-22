@@ -10,47 +10,18 @@
   $calendarFont: 16px/120% 'RobotoDraft';
   $calendarBG: null;
 
-  // Фон заголовка календаря, его внутренние отступы, параметры шрифта
-  $headBG: $lime-200;
-  $headPadding: 20px 0;
-  $headFont: null;
-
-  // Фон Дней недели, внутренние отступы
-  $calendarDayBG: $lime-300;
-  $calendarDayPadding: 4% 0;
-  $calendarDayFont: null;
-
   // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
-  $dayBG: $light-green-300;
   $outputBF: $red-a200;
   $holidatBG: $red-a400;
-  $cellPadding: 2% 0;
-  $dayWidth: 34px;
-  $dayHeight: 34px;
   $dayFont: null;
 
-  // Если вдруг правительство перенесет выходной день с субботы или воскресенья на будний день, и этот день станет рабочим, то эта переменная задает такой цвет, я ее сделаю чуть ярче, чем обычный будний день, чтобы было заметно, что мы работаем.
-  $workdayBG: $light-green-600;
-
   // Настройки текущей даты
-  $currDayCellBG: $amber-a200;
   $currDayBG: $amber-a400;
 
   // Подсказка, все стили которые с ней связаны
   $hintWidth: 280px;
   $hintPadding: 15px;
-  $hintBorderRadius: 10px;
   $hintBoxShadow: 0 0 10px rgba(0,0,0,0.5);
-  $hintBG: $lime-300;
-  $hintTitleColor: null;
-  $hintTitleFont: 16px/120% 'RobotoDraft';
-  $hintTitleMargin: 0 0 5px;
-  $hintDescFont: 14px/140% 'RobotoDraft';
-  $hintDescColor: null;
-
-  // Не активные дни перед выбранным месяцем и после него
-  $noActiveDayBG: null;
-  $noActiveDayOpacity: .4;
 
   color: $calendarTextColor;
   width: 100%;
@@ -64,7 +35,6 @@
   }
 
   .curDate {
-    background: $currDayCellBG;
     .calendar-body-day {
       background-color: $currDayBG;
     }
@@ -76,36 +46,20 @@
     cursor: pointer;
     background-color: $holidatBG
   }
-  &-head {
-    padding: $headPadding;
-    background: $headBG;
-    font: $headFont;
-  }
   &-day {
     display: flex;
     width: 100%;
     &-col {
       @extend %colWidth;
-      padding: $calendarDayPadding;
-      background: $calendarDayBG;
       border: $calendarDayBorder;
       border-right: none;
       border-bottom: none;
-      font: $calendarDayFont;
       &:first-of-type {
         border-left: none;
       }
     }
   }
   &-body {
-    &-day {
-      width: $dayWidth;
-      height: $dayHeight;
-      line-height: $dayHeight;
-      display: inline-block;
-      border-radius: 50%;
-      font: $dayFont;
-    }
     &-row {
       width: 100%;
       display: flex;
@@ -113,17 +67,15 @@
     &-col {
       @extend %colWidth;
       position: relative;
-      padding: $cellPadding;
       border: $cellBorder;
       border-right: none;
       border-bottom: none;
-      background-color: $dayBG;
-      transition: background-color .15s ease-in-out 0s;
       &:first-of-type {
         border-left: none;
       }
       &:hover {
         z-index: 2;
+        position: relative;
         .calendar-body-hint {
           top: 100%;
           left: 50%;
@@ -135,36 +87,17 @@
       top: -3000px;
       left: -3000px;
       position: absolute;
+      background-color: #fff;
       width: $hintWidth;
-      padding: $hintPadding;
-      border-radius: $hintBorderRadius;
-      background-color: $hintBG;
-      box-shadow: $hintBoxShadow;
-    }
-    &-title {
-      color: $hintTitleColor;
-      font: $hintTitleFont;
-      margin: $hintTitleMargin;
-    }
-    &-desc {
-      color: $hintDescColor;
-      font: $hintDescFont;
     }
   }
   .prev,
   .next {
-    background: $noActiveDayBG;
-    div {
-      opacity: $noActiveDayOpacity;
-    }
     &:hover {
       .calendar-body-hint {
         top: -3000px;
         left: -3000px;
       }
     }
-  }
-  .workDay  {
-    background-color: $workdayBG;
   }
 }

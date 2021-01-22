@@ -1,3 +1,4 @@
-import Calendar from './calendar/calendar';
+import Calendar from '../lib/';
+import '../lib/styles/calendar.css';
 
 export default Calendar;

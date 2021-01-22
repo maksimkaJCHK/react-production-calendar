@@ -1,17 +1,34 @@
 {
   "name": "React-production-calendar",
   "version": "0.0.1",
-  "description": "React-production-calendar",
+  "description": "React production calendar on React.js",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "buildextract": "cross-env NODE_ENV=production webpack --config config/webpack.prod.extract.js",
+    "compile": "npm run compile-js && npm run compile-styles",
+    "compile-js": "babel src/calendar -d lib --copy-files && npm run minifier",
+    "compile-styles": "node-sass --output-style compressed ./src/calendar/styles/ -o ./lib/styles/ ",
+    "minifier": "terser ./lib/index.js -o ./lib/index.js -c -m && terser ./lib/components/calendarBody.js -o ./lib/components/calendarBody.js -c -m && terser ./lib/components/calendarDay.js -o ./lib/components/calendarDay.js -c -m && terser ./lib/components/calendarHead.js -o ./lib/components/calendarHead.js -c -m && terser ./lib/services/days.js -o ./lib/services/days.js -c -m && terser ./lib/services/month.js -o ./lib/services/month.js -c -m && terser ./lib/services/monthClass.js -o ./lib/services/monthClass.js -c -m && terser ./lib/services/time.js -o ./lib/services/time.js -c -m",
     "test": "jest"
   },
   "author": "Maksim Zhuchkov",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maksimkaJCHK/React-calendar"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "calendar",
+    "production calendar",
+    "react calendar",
+    "react production calendar"
+  ],
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-es2015": "^7.0.0-beta.53",

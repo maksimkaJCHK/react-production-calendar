@@ -48,6 +48,9 @@
     border: none;
     outline: none;
     line-height: inherit;
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
     user-select: none;
     appearance: none;
     overflow: visible;

@@ -4,7 +4,7 @@
       "@babel/preset-env",
       {
         "debug": false,
-        "useBuiltIns": "usage",
+        "useBuiltIns": "entry",
         "corejs": 3,
         "targets": {
           "chrome": "58",

@@ -10,7 +10,7 @@ module.exports = merge(common, services, {
     minimize: true,
     usedExports: true,
     minimizer: [new TerserPlugin({
-      test: /\.js(\?.*)?$/i,
+      test: /\.js|.jsx?$/,
       parallel: true,
       extractComments: true,
       terserOptions: {
@@ -23,7 +23,7 @@ module.exports = merge(common, services, {
       }
     })],
     splitChunks: {
-      chunks: 'async',
+      chunks: 'all',
       minSize: 134000,
       minRemainingSize: 0,
       maxSize: 0,

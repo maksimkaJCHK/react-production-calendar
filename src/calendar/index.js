@@ -1,9 +1,8 @@
 import React from 'react';
-import CalendarHead from './components/calendarHead';
-import CalendarDay  from './components/calendarDay';
-import CalendarBody from './components/calendarBody';
+import CalendarHead from './components/calendarHead.js';
+import CalendarDay  from './components/calendarDay.js';
+import CalendarBody from './components/calendarBody.js';
 import { monthClass } from './services/monthClass';
-import './styles/calendar.scss';
 
 const Calender = (props) => {
   let { lang = 'ru', year = '2021', month = '1', visibleYear =  true, startDayWeek = 1, holiday = [], handleClick = () => null, handleMouseOver = () => null, handleMouseOut = () => null } = props;

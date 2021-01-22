@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Calendar from '../index';
 import birthdaysArr from './pages/birthdays';
+import findIndex from 'core-js/es/array/find-index';
 
 import './pages/exampleCalendar.scss';
 import './pages/birthdays.scss';

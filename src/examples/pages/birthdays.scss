@@ -2,6 +2,9 @@
 
 .dateCheck {
   .calendar {
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
     user-select: none;
     .selected {
       background-color: #f97d95;
@@ -96,6 +99,9 @@ form {
   }
   .nextM,
   .prevM {
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
     user-select: none;
   }
   .nextM,

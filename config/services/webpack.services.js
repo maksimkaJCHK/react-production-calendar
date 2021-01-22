@@ -11,13 +11,7 @@ module.exports = {
         exclude: /(node_modules)/,
         use: [
           'style-loader',
-          'css-loader',
-          {
-            loader: "postcss-loader",
-            options: {
-              config: {path: 'postcss.config.js'},
-            }
-          }
+          'css-loader'
         ]
       }, {
         test: /\.scss$/,

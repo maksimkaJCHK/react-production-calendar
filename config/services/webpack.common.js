@@ -5,7 +5,7 @@ module.exports = {
     main: [paths.src + '/examples/main.js'],
     productionCalendar: [paths.src + '/examples/production_calendar.js'],
     seasons: [paths.src + '/examples/seasons.js'],
-    birthdaySchedule: [paths.src + '/examples/birthday_schedule.js'],
+    birthdaySchedule: [paths.src + '/examples/birthday_schedule.js']
   },
   output: {
     path: paths.build,

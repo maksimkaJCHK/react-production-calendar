@@ -11,17 +11,17 @@
   $calendarBG: null;
 
   // Фон заголовка календаря, его внутренние отступы, параметры шрифта
-  $headBG: $lime-200;
+  $headBG: null;
   $headPadding: 20px 0;
   $headFont: null;
 
   // Фон Дней недели, внутренние отступы
-  $calendarDayBG: $lime-300;
+  $calendarDayBG: null;
   $calendarDayPadding: 4% 0;
   $calendarDayFont: null;
 
   // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
-  $dayBG: $light-green-300;
+  $dayBG: null;
   $outputBF: $red-a200;
   $holidatBG: $red-a400;
   $cellPadding: 2% 0;
@@ -33,8 +33,8 @@
   $workdayBG: $light-green-600;
 
   // Настройки текущей даты
-  $currDayCellBG: $amber-a200;
-  $currDayBG: $amber-a400;
+  $currDayCellBG: $light-blue-300;
+  $currDayBG: $light-blue-500;
 
   // Подсказка, все стили которые с ней связаны
   $hintWidth: 280px;

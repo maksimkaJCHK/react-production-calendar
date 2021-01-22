@@ -12,7 +12,7 @@ module.exports = merge(common, {
     minimize: true,
     usedExports: true,
     minimizer: [new TerserPlugin({
-      test: /\.js(\?.*)?$/i,
+      test: /\.js|.jsx?$/,
       parallel: true,
       extractComments: true,
       terserOptions: {
@@ -74,12 +74,6 @@ module.exports = merge(common, {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: "postcss-loader",
-            options: {
-              config: {path: 'postcss.config.js'},
-            }
-          }
         ]
       }, {
         test: /\.scss$/,
