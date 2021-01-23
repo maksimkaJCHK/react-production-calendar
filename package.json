@@ -1,8 +1,8 @@
 {
-  "name": "React-production-calendar",
-  "version": "0.0.1",
+  "name": "react-production-calendar",
+  "version": "0.0.6",
   "description": "React production calendar on React.js",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/maksimkaJCHK/React-calendar"
+    "url": "https://github.com/maksimkaJCHK/react-production-calendar"
   },
   "keywords": [
     "react",
@@ -48,9 +48,6 @@
     "jest-enzyme": "^7.1.2",
     "mini-css-extract-plugin": "^1.3.3",
     "node-sass": "^5.0.0",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^14.0.0",
-    "postcss-loader": "^4.1.0",
     "raw-loader": "^4.0.2",
     "react-test-renderer": "^17.0.1",
     "sass-loader": "^10.1.0",
@@ -62,10 +59,9 @@
     "webpack": "^5.10.3",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.7.2"
-  },
-  "dependencies": {
+    "webpack-merge": "^5.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  }
+  },
+  "dependencies": {}
 }

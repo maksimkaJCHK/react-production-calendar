@@ -30,10 +30,6 @@
   background: $calendarBG;
   font: $calendarFont;
 
-  %colWidth {
-    width: 14.28571428571429%;
-  }
-
   .curDate {
     .calendar-body-day {
       background-color: $currDayBG;
@@ -47,10 +43,8 @@
     background-color: $holidatBG
   }
   &-day {
-    display: flex;
     width: 100%;
     &-col {
-      @extend %colWidth;
       border: $calendarDayBorder;
       border-right: none;
       border-bottom: none;
@@ -62,10 +56,8 @@
   &-body {
     &-row {
       width: 100%;
-      display: flex;
     }
     &-col {
-      @extend %colWidth;
       position: relative;
       border: $cellBorder;
       border-right: none;

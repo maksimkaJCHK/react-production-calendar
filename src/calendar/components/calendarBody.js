@@ -10,10 +10,10 @@ const CalendarBody = ( { year, month, startDayWeek, holiday, handleClick, handle
       {
         buildDays.map((week, count) => {
           return (
-            <div key = { count } className = 'calendar-body-row'>
+            <div style = {{ display: 'flex' }} key = { count } className = 'calendar-body-row'>
               { week.map(el => {
                 return (
-                  <div className = { el.className.join(' ') } key = { el.id } onClick = { () => handleClick(el.time) } onMouseOver = { () => handleMouseOver(el.time) } onMouseOut = { () => handleMouseOut(el.time) }>
+                  <div style = {{ width: '14.28571428571429%' }} className = { el.className.join(' ') } key = { el.id } onClick = { () => handleClick(el.time) } onMouseOver = { () => handleMouseOver(el.time) } onMouseOut = { () => handleMouseOut(el.time) }>
                     <div className = 'calendar-body-day'>
                       { el.day }
                     </div>

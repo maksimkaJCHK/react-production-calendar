@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Calendar from '../index';
 import holiday from '../holidays/holiday';
 
+import '../../lib/styles/calendar.css';
 import './pages/exampleCalendar.scss';
 import './pages/seasons.scss';
 

@@ -80,9 +80,6 @@ module.exports = merge(common, {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
-          {
-            loader: "postcss-loader",
-          },
           "sass-loader" 
         ]
       }, {
@@ -119,7 +116,7 @@ module.exports = merge(common, {
     ),
     new HtmlWebpackPlugin(
       {
-        filename: '../production_calendar.html',
+        filename: '../production-calendar.html',
         template: 'templates/production_calendar.twig',
         inject: false
       }
@@ -133,8 +130,29 @@ module.exports = merge(common, {
     ),
     new HtmlWebpackPlugin(
       {
-        filename: '../birthday_schedule.html',
+        filename: '../birthday-schedule.html',
         template: 'templates/birthday_schedule.twig',
+        inject: false
+      }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../calendar-reset.html',
+        template: 'templates/calendar_reset.twig',
+        inject: false
+      }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../calendar-type.html',
+        template: 'templates/calendar_type.twig',
+        inject: false
+      }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../calendar-without-style.html',
+        template: 'templates/calendar_without_style.twig',
         inject: false
       }
     )

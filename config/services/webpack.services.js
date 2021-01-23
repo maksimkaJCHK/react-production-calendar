@@ -8,7 +8,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /(node_modules)/,
         use: [
           'style-loader',
           'css-loader'
@@ -18,9 +17,6 @@ module.exports = {
         use: [
           "style-loader",
           "css-loader",
-          {
-            loader: "postcss-loader",
-          },
           "sass-loader" 
         ]
       }, {

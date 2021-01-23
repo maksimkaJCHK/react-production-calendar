@@ -6,11 +6,11 @@ const CalendarDay = ( { startDayWeek, lang } ) => {
   let curDays = (startDayWeek == 0) ? [ ...calDay.slice(6), ...calDay.slice(0, 6)] : calDay;
 
   return (
-    <div className = 'calendar-day'>
+    <div style = {{ display: 'flex' }} className = 'calendar-day'>
       {
         curDays.map((el, count) => {
           return (
-            <div className = 'calendar-day-col' key = { count }>
+            <div style = {{ width: '14.28571428571429%' }} className = 'calendar-day-col' key = { count }>
               { el }
             </div>
           )
