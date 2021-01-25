@@ -9,6 +9,8 @@ module.exports = {
     calendarReset: [paths.src + '/examples/calendar_reset.js'],
     calendarType: [paths.src + '/examples/calendar_type.js'],
     calendarWithoutStyle: [paths.src + '/examples/calendar_without_style.js'],
+    calendarDark: [paths.src + '/examples/calendar_dark.js'],
+    calendarLocalization: [paths.src + '/examples/calendar_localization.js'],
   },
   output: {
     path: paths.build,

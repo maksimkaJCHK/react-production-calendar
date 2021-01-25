@@ -155,6 +155,20 @@ module.exports = merge(common, {
         template: 'templates/calendar_without_style.twig',
         inject: false
       }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../calendar-dark.html',
+        template: 'templates/calendar_dark.twig',
+        inject: false
+      }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../calendar-localization.html',
+        template: 'templates/calendar_localization.twig',
+        inject: false
+      }
     )
   ],
 })
