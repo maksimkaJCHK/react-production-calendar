@@ -35,7 +35,7 @@
 Подключить можно следующие CSS-ки:
 
 - import 'react-production-calendar/lib/styles/calendar-reset-styles.css', и тогда календарь будет выглядеть [вот так](http://sass-lessons.ru/calendar/calendar-reset.html). Здесь самые минимальные стили, не внутренних отступов, ничего, только подсветка даты, праздников, и текущей даты, все остальное вам придется стилизовывать самим. Допускаю, что это может быть удобно, если у вас есть дизайн календаря, тогда не нужно будет перебивать много стилей.
-- import 'react-production-calendar/lib/styles/calendar-type.css', и тогда календарь будет выглядеть [вот так](http://sass-lessons.ru/calendar/calendar-type.html. Здесь календарь более менее выглядит прилично, но все таки его нужно будет достилизовать.
+- import 'react-production-calendar/lib/styles/calendar-type.css', и тогда календарь будет выглядеть [вот так](http://sass-lessons.ru/calendar/calendar-type.html). Здесь календарь более менее выглядит прилично, но все таки его нужно будет достилизовать.
 - import 'react-production-calendar/lib/styles/calendar-dark.css', и тогда календарь будет выглядеть [вот так](http://sass-lessons.ru/calendar/calendar-dark.html). Тут применяется темная тема календаря.
 - import 'react-production-calendar/lib/styles/calendar.css', и тогда календарь будет выглядеть [вот так](http://sass-lessons.ru/calendar/index.html). Тут календарь стилизован в стиле "Material Design".
 
