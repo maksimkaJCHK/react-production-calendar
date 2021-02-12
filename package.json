@@ -1,16 +1,16 @@
 {
   "name": "react-production-calendar",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "React production calendar on React.js",
   "main": "lib/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "buildextract": "cross-env NODE_ENV=production webpack --config config/webpack.prod.extract.js",
-    "compile": "npm run compile-js && npm run compile-styles",
+    "compile": "npm run compile-js && npm run compile-styles && npm run minifier",
     "compile-js": "babel src/calendar -d lib --copy-files && npm run minifier",
     "compile-styles": "node-sass --output-style compressed ./src/calendar/styles/ -o ./lib/styles/ ",
-    "minifier": "terser ./lib/index.js -o ./lib/index.js -c -m && terser ./lib/components/calendarBody.js -o ./lib/components/calendarBody.js -c -m && terser ./lib/components/calendarDay.js -o ./lib/components/calendarDay.js -c -m && terser ./lib/components/calendarHead.js -o ./lib/components/calendarHead.js -c -m && terser ./lib/services/days.js -o ./lib/services/days.js -c -m && terser ./lib/services/month.js -o ./lib/services/month.js -c -m && terser ./lib/services/monthClass.js -o ./lib/services/monthClass.js -c -m && terser ./lib/services/time.js -o ./lib/services/time.js -c -m",
+    "minifier": "terser ./lib/index.js -o ./lib/index.js -c -m && terser ./lib/components/calendarBody.js -o ./lib/components/calendarBody.js -c -m && terser ./lib/components/calendarDay.js -o ./lib/components/calendarDay.js -c -m && terser ./lib/components/calendarHead.js -o ./lib/components/calendarHead.js -c -m && terser ./lib/services/days.js -o ./lib/services/days.js -c -m && terser ./lib/services/month.js -o ./lib/services/month.js -c -m && terser ./lib/services/monthClass.js -o ./lib/services/monthClass.js -c -m && terser ./lib/services/time.js -o ./lib/services/time.js -c -m && terser ./lib/components/calendarBodyItem.js -o ./lib/components/calendarBodyItem.js -c -m",
     "test": "jest"
   },
   "author": "Maksim Zhuchkov",

@@ -11,6 +11,7 @@ module.exports = {
     calendarWithoutStyle: [paths.src + '/examples/calendar_without_style.js'],
     calendarDark: [paths.src + '/examples/calendar_dark.js'],
     calendarLocalization: [paths.src + '/examples/calendar_localization.js'],
+    calendarChangeClass: [paths.src + '/examples/calendar_change_class.js'],
   },
   output: {
     path: paths.build,

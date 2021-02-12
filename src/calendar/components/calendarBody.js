@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { dayInMonth, dayForWeek } from '../services/time';
+import CalendarBodyItem from './calendarBodyItem';
 
 const CalendarBody = ( { year, month, startDayWeek, holiday, handleClick, handleMouseOver, handleMouseOut }) => {
   let stopCount = dayInMonth(year, month);
@@ -13,26 +14,7 @@ const CalendarBody = ( { year, month, startDayWeek, holiday, handleClick, handle
             <div style = {{ display: 'flex' }} key = { count } className = 'calendar-body-row'>
               { week.map(el => {
                 return (
-                  <div style = {{ width: '14.28571428571429%' }} className = { el.className.join(' ') } key = { el.id } onClick = { () => handleClick(el.time) } onMouseOver = { () => handleMouseOver(el.time) } onMouseOut = { () => handleMouseOut(el.time) }>
-                    <div className = 'calendar-body-day'>
-                      { el.day }
-                    </div>
-                    { el.hint.length
-                     ? el.hint.map((el, count) => {
-                        return (
-                          <div className = 'calendar-body-hint' key = { count }>
-                            <div className = 'calendar-body-title'>
-                              { el.title }
-                            </div>
-                            <div className = 'calendar-body-desc'>
-                              { el.desc }
-                            </div>
-                          </div>
-                        )
-                      })
-                      : null
-                    }
-                  </div>
+                  <CalendarBodyItem el = { el } key = { el.id } handleClick = { handleClick } handleMouseOver = { handleMouseOver } handleMouseOut = { handleMouseOut } />
                 )
               }) }
             </div>

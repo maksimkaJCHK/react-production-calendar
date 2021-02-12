@@ -169,6 +169,13 @@ module.exports = merge(common, {
         template: 'templates/calendar_localization.twig',
         inject: false
       }
+    ),
+    new HtmlWebpackPlugin(
+      {
+        filename: '../calendar-change-class.html',
+        template: 'templates/calendar_change_class.twig',
+        inject: false
+      }
     )
   ],
 })

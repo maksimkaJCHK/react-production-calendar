@@ -92,3 +92,52 @@
     height: 36px;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .calendar-body-col {
+    &:nth-of-type(1) {
+      &:hover {
+        .calendar-body-hint {
+          left: 0;
+          margin-left: 0;
+        }
+      }
+    }
+    &:nth-of-type(2) {
+      &:hover {
+        .calendar-body-hint {
+          left: -100%;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &:nth-of-type(5) {
+      &:hover {
+        .calendar-body-hint {
+          left: auto;
+          right: -200%;
+          margin-left: 0;
+        }
+      }
+    }
+    &:nth-of-type(6) {
+      &:hover {
+        .calendar-body-hint {
+          left: auto;
+          right: -100%;
+          margin-left: 0;
+        }
+      }
+    }
+    &:nth-of-type(7) {
+      &:hover {
+        .calendar-body-hint {
+          left: auto;
+          right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,3 @@
-import Calendar from '../lib/';
+import Calendar from '../lib';
 
 export default Calendar;
