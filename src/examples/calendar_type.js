@@ -33,7 +33,7 @@ const ExampleCalendar = () => {
       <button className = 'mdc-button' onClick = { changeDayWeek }>Изменить начальный день недели</button>
       <button className = 'mdc-button' onClick = { decMonth }>Увеличить месяц</button>
       <div className = 'exampleCalendar-wrap'>
-        <Calendar lang = 'ru' year = '2021' month = { month } visibleYear = { true } startDayWeek = { dayWeek } holiday = { holiday } />
+        <Calendar lang = 'ru' year = '2022' month = { month } visibleYear = { true } startDayWeek = { dayWeek } holiday = { holiday } />
       </div>
     </div>
   )

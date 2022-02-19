@@ -252,7 +252,7 @@ const BirthayShedule = () => {
           <div className = "dateCheck">
             <div className = "prevM" onClick = { prevMonth }>&#9668;</div>
             <div className = "nextM" onClick = { nextMonth }>&#9658;</div>
-            <Calendar visibleYear = { false } year = '2021' month = { month } holiday = { param.birthdays } handleClick = { onChangeDate } handleMouseOver = { handleMouseOver } handleMouseOut = { handleMouseOut } />
+            <Calendar visibleYear = { false } year = '2022' month = { month } holiday = { param.birthdays } handleClick = { onChangeDate } handleMouseOver = { handleMouseOver } handleMouseOut = { handleMouseOut } />
           </div>
           <div className = "chosenDate">
             { param.form.date.value ? "Дата: " + param.form.date.value : 'Дата не выбрана' }
@@ -275,43 +275,43 @@ const BirthayShedule = () => {
           }
         </div>
       </form>
-      <h2>Дни рождения сотрдников на 2021 год</h2>
+      <h2>Дни рождения сотрдников на 2022 год</h2>
       <div className = 'exampleCalendar-group'>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '1' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '1' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '2' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '2' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '3' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '3' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '4' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '4' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '5' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '5' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '6' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '6' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '7' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '7' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '8' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '8' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '9' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '9' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '10' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '10' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '11' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '11' holiday = { param.birthdays } />
         </div>
         <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2021' month = '12' holiday = { param.birthdays } />
+          <Calendar visibleYear = { false } year = '2022' month = '12' holiday = { param.birthdays } />
         </div>
       </div>
     </div>

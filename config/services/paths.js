@@ -1,7 +1,8 @@
 const path = require('path')
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 module.exports = {
-  src: path.resolve(__dirname, '../../src'), 
-  public: path.resolve(__dirname, '../../public'),
-  build: path.resolve(__dirname, '../../public/js')
+  src: path.join(ROOT_DIR, '../src'), 
+  public: path.join(ROOT_DIR, '../public'),
+  build: path.join(ROOT_DIR, '../public/js')
 }
