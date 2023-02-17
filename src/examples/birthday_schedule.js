@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import Calendar from '../index';
 import birthdaysArr from './pages/birthdays';
 import findIndex from 'core-js/es/array/find-index';
@@ -9,10 +9,11 @@ import './pages/exampleCalendar.scss';
 import './pages/birthdays.scss';
 
 const node = document.getElementById('app');
+const root = ReactDOM.createRoot(node);
 
 const BirthayShedule = () => {
-
-  let [ month, setMonth ] = useState( (new Date()).getMonth() + 1 );
+  const [ year, setYear ] = useState(2023);
+  const [ month, setMonth ] = useState( (new Date()).getMonth() + 1 );
 
   let [ param, setState ] = useState({
     birthdays: [
@@ -252,7 +253,15 @@ const BirthayShedule = () => {
           <div className = "dateCheck">
             <div className = "prevM" onClick = { prevMonth }>&#9668;</div>
             <div className = "nextM" onClick = { nextMonth }>&#9658;</div>
-            <Calendar visibleYear = { false } year = '2022' month = { month } holiday = { param.birthdays } handleClick = { onChangeDate } handleMouseOver = { handleMouseOver } handleMouseOut = { handleMouseOut } />
+            <Calendar
+              visibleYear = { false }
+              year = { year }
+              month = { month }
+              holiday = { param.birthdays }
+              handleClick = { onChangeDate }
+              handleMouseOver = { handleMouseOver }
+              handleMouseOut = { handleMouseOut }
+            />
           </div>
           <div className = "chosenDate">
             { param.form.date.value ? "Дата: " + param.form.date.value : 'Дата не выбрана' }
@@ -260,12 +269,22 @@ const BirthayShedule = () => {
         </div>
         <div className = { param.form.title.alarmText ? 'row alarm' : 'row'}>
           <label>Заголовок сообщения</label>
-          <input type = "text" name = "title" value = { param.form.title.value } onChange = { changeInput } />
+          <input
+           type = "text"
+           name = "title"
+           value = { param.form.title.value }
+           onChange = { changeInput }
+          />
           { param.form.title.alarmText ? <div className = 'hint'>{ param.form.title.alarmText }</div> : null }
         </div>
         <div className = { param.form.text.alarmText ? 'row alarm' : 'row'}>
           <label>Текст сообщения</label>
-          <textarea type = "text" name = "text" value = { param.form.text.value } onChange = { changeInput } />
+          <textarea
+            type = "text"
+            name = "text"
+            value = { param.form.text.value }
+            onChange = { changeInput }
+          />
           { param.form.text.alarmText ? <div className = 'hint'>{ param.form.text.alarmText }</div> : null }
         </div>
         <div className = 'row space-between-align'>
@@ -275,50 +294,23 @@ const BirthayShedule = () => {
           }
         </div>
       </form>
-      <h2>Дни рождения сотрдников на 2022 год</h2>
+      <h2>Дни рождения сотрдников на { year } год</h2>
       <div className = 'exampleCalendar-group'>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '1' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '2' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '3' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '4' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '5' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '6' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '7' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '8' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '9' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '10' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '11' holiday = { param.birthdays } />
-        </div>
-        <div className = 'exampleCalendar-item'>
-          <Calendar visibleYear = { false } year = '2022' month = '12' holiday = { param.birthdays } />
-        </div>
+        {
+          [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el) => (
+            <div key = { el } className = 'exampleCalendar-item'>
+              <Calendar
+                visibleYear = { false }
+                year = { year }
+                month = { el }
+                holiday = { param.birthdays }
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
   )
 }
 
-ReactDOM.render(
-  <BirthayShedule />,
-  node
-)
+root.render(<BirthayShedule />);

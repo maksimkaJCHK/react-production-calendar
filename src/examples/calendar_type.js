@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import Calendar from '../index';
 import holiday from '../holidays/holiday';
 
@@ -7,9 +7,9 @@ import '../../lib/styles/calendar-type.css';
 import './pages/exampleCalendar.scss';
 
 const node = document.getElementById('app');
+const root = ReactDOM.createRoot(node);
 
 const ExampleCalendar = () => {
-
   let [ dayWeek, setDayWeek ] = useState(1);
   let [ month, setMonth ] = useState(1);
 
@@ -33,13 +33,17 @@ const ExampleCalendar = () => {
       <button className = 'mdc-button' onClick = { changeDayWeek }>Изменить начальный день недели</button>
       <button className = 'mdc-button' onClick = { decMonth }>Увеличить месяц</button>
       <div className = 'exampleCalendar-wrap'>
-        <Calendar lang = 'ru' year = '2022' month = { month } visibleYear = { true } startDayWeek = { dayWeek } holiday = { holiday } />
+        <Calendar
+          lang = 'ru'
+          year = { 2023 }
+          month = { month }
+          visibleYear = { true }
+          startDayWeek = { dayWeek }
+          holiday = { holiday }
+        />
       </div>
     </div>
   )
 }
 
-ReactDOM.render(
-  <ExampleCalendar />,
-  node
-)
+root.render(<ExampleCalendar />);

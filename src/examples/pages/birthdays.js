@@ -1,6 +1,7 @@
+const year = 2023;
 let birthdaysArr = [
   {
-    "year": 2022,
+    "year": year,
     "month": 0,
     "day": 13,
     "class": "",
@@ -11,7 +12,7 @@ let birthdaysArr = [
       }
     ]
   }, {
-    "year": 2022,
+    "year": year,
     "month": 1,
     "day": 10,
     "class": "",
@@ -23,7 +24,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 2,
     "day": 9,
     "class": "",
@@ -35,7 +36,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 3,
     "day": 8,
     "class": "",
@@ -47,7 +48,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 4,
     "day": 21,
     "class": "",
@@ -59,7 +60,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 5,
     "day": 18,
     "class": "",
@@ -71,7 +72,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 6,
     "day": 24,
     "class": "",
@@ -83,7 +84,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 7,
     "day": 13,
     "class": "",
@@ -95,7 +96,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 8,
     "day": 25,
     "class": "",
@@ -107,7 +108,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 9,
     "day": 6,
     "class": "",
@@ -119,7 +120,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 10,
     "day": 25,
     "class": "",
@@ -131,7 +132,7 @@ let birthdaysArr = [
     ]
   },
   {
-    "year": 2022,
+    "year": year,
     "month": 11,
     "day": 22,
     "class": "",
