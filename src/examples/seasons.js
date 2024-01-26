@@ -11,7 +11,7 @@ const node = document.getElementById('app');
 const root = ReactDOM.createRoot(node);
 
 const SeasonsCalendar = () => {
-  const [ year, setYear ] = useState(2023);
+  const [ year, setYear ] = useState(2024);
   const [ dayWeek, setDayWeek ] = useState(1);
 
   const changeDayWeek = () => {
