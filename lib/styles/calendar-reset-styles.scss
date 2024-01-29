@@ -1,51 +1,49 @@
 @import './color-palette.scss';
 
-.calendar {
-
+:root {
   // Цвет текста календаря, цвет бордеров, цвет подложки
-  $calendarTextColor: #000;
-  $calendarBorder: 1px solid $grey-800;
-  $cellBorder: $calendarBorder;
-  $calendarDayBorder: $calendarBorder;
-  $calendarFont: 16px/120% 'RobotoDraft';
-  $calendarBG: null;
+  --pc-text-color: #000;
+  --pc-border: 1px solid #{$grey-800};
+  --pc-cell-border: var(--pc-border);
+  --pc-day-border: var(--pc-border);
+  --pc-font: 16px/120% 'RobotoDraft';
+  --pc-bg: inherit;
 
   // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
-  $outputBF: $red-a200;
-  $holidatBG: $red-a400;
-  $dayFont: null;
+  --pc-output-bf: #{$red-a200};
+  --pc-holiday-bg: #{$red-a400};
 
   // Настройки текущей даты
-  $currDayBG: $amber-a400;
+  --pc-curr-day-bg: #{$amber-a400};
 
   // Подсказка, все стили которые с ней связаны
-  $hintWidth: 280px;
-  $hintPadding: 15px;
-  $hintBoxShadow: 0 0 10px rgba(0,0,0,0.5);
+  --pc-hint-width: 280px;
+}
 
-  color: $calendarTextColor;
+.calendar {
+  color: var(--pc-text-color);
   width: 100%;
   text-align: center;
-  border: $calendarBorder;
-  background: $calendarBG;
-  font: $calendarFont;
+  border: var(--pc-border);
+  background: var(--pc-bg);
+  font: var(--pc-font);
 
   .curDate {
     .calendar-body-day {
-      background-color: $currDayBG;
+      background-color: var(--pc-curr-day-bg);
     }
   }
   .output {
-    background-color: $outputBF;
+    background-color: var(--pc-output-bf);
   }
   .holiday {
     cursor: pointer;
-    background-color: $holidatBG
+    background-color: var(--pc-holiday-bg);
   }
   &-day {
     width: 100%;
     &-col {
-      border: $calendarDayBorder;
+      border: var(--pc-day-border);
       border-right: none;
       border-bottom: none;
       &:first-of-type {
@@ -59,7 +57,7 @@
     }
     &-col {
       position: relative;
-      border: $cellBorder;
+      border: var(--pc-cell-border);
       border-right: none;
       border-bottom: none;
       &:first-of-type {
@@ -71,7 +69,7 @@
         .calendar-body-hint {
           top: 100%;
           left: 50%;
-          margin-left: -$hintWidth/2;
+          transform: translateX(-50%);
         }
       }
     }
@@ -80,7 +78,7 @@
       left: -3000px;
       position: absolute;
       background-color: #fff;
-      width: $hintWidth;
+      width: var(--pc-hint-width);
     }
   }
   .prev,

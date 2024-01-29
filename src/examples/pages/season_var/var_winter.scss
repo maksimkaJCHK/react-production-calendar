@@ -1,34 +1,34 @@
 @import '../color-palette.scss';
 
 // Цвет текста календаря, цвет бордеров, цвет подложки
-$calendarTextColor: #000;
-$calendarBorder: 1px solid $grey-800;
-$cellBorder: $calendarBorder;
-$calendarDayBorder: $calendarBorder;
-$calendarBG: null;
+--pc-text-color: #000;
+--pc-border: 1px solid #{$grey-800};
+--pc-cell-border: var(--pc-border);
+--pc-day-border: var(--pc-border);
+$--pc-bg: inherit;
 
 // Фон заголовка календаря, его внутренние отступы, параметры шрифта
-$headBG: $blue-600;
+--pc-head-bg: #{$blue-600};
 
 // Фон Дней недели, внутренние отступы
-$calendarDayBG: $blue-500;
+--pc-head-day-bg: #{$blue-500};
 
 // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
-$dayBG: $blue-200;
-$outputBF: $red-a200;
-$holidatBG: $red-a400;
+--pc-day-bg: #{$blue-200};
+--pc-output-bf: #{$red-a200};
+--pc-holiday-bg: #{$red-a400};
 
 // Если вдруг правительство перенесет выходной день с субботы или воскресенья на будний день, и этот день станет рабочим, то эта переменная задает такой цвет, я ее сделаю чуть ярче, чем обычный будний день, чтобы было заметно, что мы работаем.
-$workdayBG: $blue-400;
+--pc-workday-bg: #{$blue-400};
 
 // Настройки текущей даты
-$currDayCellBG: null;
-$currDayBG: $blue-500;
+--pc-curr-day-cell-bg: null;
+--pc-curr-day-bg: #{$blue-500};
 
 // Подсказка, все стили которые с ней связаны
-$hintBG: $blue-a200;
-$hintTitleColor: null;
-$hintDescColor: null;
+--pc-hint-bg: #{$blue-a200};
+--pc-hint-title-color: null;
+--pc-hint-desc-colorr: null;
 
 // Не активные дни перед выбранным месяцем и после него
-$noActiveDayBG: null;
+--pc-no-active-day-bg: null;

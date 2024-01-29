@@ -1,0 +1,111 @@
+.calendar {
+  color: var(--pc-text-color);
+  width: 100%;
+  text-align: center;
+  border: var(--pc-border);
+  background: var(--pc-bg);
+  font: var(--pc-font);
+
+  .prev,
+  .next {
+    background: var(--pc-no-active-day-bg);
+    div {
+      opacity: var(--pc-no-active-day-opacity);
+    }
+    &:hover {
+      .calendar-body-hint {
+        top: -3000px;
+        left: -3000px;
+      }
+    }
+  }
+
+  .curDate {
+    background: var(--pc-curr-day-cell-bg);
+    .calendar-body-day {
+      background-color: var(--pc-curr-day-bg);
+    }
+  }
+  .output {
+    background-color: var(--pc-output-bf);
+  }
+  .holiday {
+    cursor: pointer;
+    background-color: var(--pc-holiday-bg);
+  }
+  &-head {
+    padding: var(--pc-head-padding);
+    background: var(--pc-head-bg);
+    font: var(--pc-head-font);
+  }
+  &-day {
+    width: 100%;
+    &-col {
+      padding: var(--pc-head-day-padding);
+      background: var(--pc-head-day-bg);
+      border: var(--pc-day-border);
+      border-right: none;
+      border-bottom: none;
+      font: var(--pc-head-day-font);
+      &:first-of-type {
+        border-left: none;
+      }
+    }
+  }
+  &-body {
+    &-day {
+      font: var(--pc-day-font);
+      width: var(--pc-day-width);
+      height: var(--pc-day-height);
+      line-height: var(--pc-day-height);
+      display: inline-block;
+      border-radius: 50%;
+    }
+    &-row {
+      width: 100%;
+    }
+    &-col {
+      position: relative;
+      padding: var(--pc-cell-padding);
+      border: var(--pc-cell-border);
+      border-right: none;
+      border-bottom: none;
+      background-color: var(--pc-day-bg);
+      transition: background-color .15s ease-in-out 0s;
+      &:first-of-type {
+        border-left: none;
+      }
+      &:hover {
+        z-index: 2;
+        .calendar-body-hint {
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    &-hint {
+      top: -3000px;
+      left: -3000px;
+      position: absolute;
+      width: var(--pc-hint-width);
+      padding: var(--pc-hint-padding);
+      border-radius: var(--pc-hint-border-radius);
+      background-color: var(--pc-hint-bg);
+      box-shadow: var(--pc-hint-box-shadow);
+    }
+    &-title {
+      color: var(--pc-hint-title-color);
+      font: var(--pc-hint-title-font);
+      margin: var(--pc-hint-title-margin);
+    }
+    &-desc {
+      color: var(--pc-hint-desc-color);
+      font: var(--pc-hint-desc-font);
+    }
+  }
+
+  .workDay  {
+    background-color: var(--pc-workday-bg);
+  }
+}

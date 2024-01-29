@@ -5,7 +5,7 @@ import CalendarBody from './components/calendarBody.js';
 import { monthClass } from './services/monthClass';
 
 const Calender = (props) => {
-  let {
+  const {
     lang = 'ru',
     year = '2024',
     month = '1',
@@ -18,8 +18,8 @@ const Calender = (props) => {
     handleMouseOut = () => null
   } = props;
 
-  let calMonth = month - 1;
-  let calendarClass = `calendar ${monthClass[calMonth]} ${calClass}`;
+  const calMonth = month - 1;
+  const calendarClass = `calendar ${monthClass[calMonth]} ${calClass}`;
 
   return (
     <div className = { calendarClass }>
