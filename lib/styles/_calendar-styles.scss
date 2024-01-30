@@ -53,6 +53,9 @@
     }
   }
   &-body {
+    &-row {
+      display: flex;
+    }
     &-day {
       font: var(--pc-day-font);
       width: var(--pc-day-width);
@@ -65,6 +68,8 @@
       width: 100%;
     }
     &-col {
+      $size: 100/7;
+      width: #{$size}#{'%'};
       position: relative;
       padding: var(--pc-cell-padding);
       border: var(--pc-cell-border);

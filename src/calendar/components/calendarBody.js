@@ -11,7 +11,7 @@ const CalendarBody = ( { year, month, startDayWeek, holiday, handleClick, handle
       {
         buildDays.map((week, count) => {
           return (
-            <div style = {{ display: 'flex' }} key = { count } className = 'calendar-body-row'>
+            <div key = { count } className = 'calendar-body-row'>
               { week.map(el => {
                 return (
                   <CalendarBodyItem el = { el } key = { el.id } handleClick = { handleClick } handleMouseOver = { handleMouseOver } handleMouseOut = { handleMouseOut } />

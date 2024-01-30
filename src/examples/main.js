@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import Calendar from '../index';
+import Calendar from '../calendar/index';
 import holiday from '../holidays/holiday';
 
 import '../../lib/styles/calendar.css';

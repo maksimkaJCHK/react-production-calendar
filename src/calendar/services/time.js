@@ -4,7 +4,8 @@ const calcCurDate = (month, year) => {
   let curDate = new Date().setHours(0, 0, 0, 0);
   let curMonth = new Date(curDate).getMonth();
   let currYear = new Date(curDate).getFullYear()
-  let isCurDate = (curMonth == month && currYear == year) ? true : false;
+
+  let isCurDate = curMonth == month && currYear == year;
 
   return {
     isCurDate,
@@ -51,17 +52,21 @@ export const dayForWeek = (year, month, stopDay, start, holiday) => {
   let nMonth = (month + 1) > 11 ? 0 : month + 1;
 
   if (holiday.length) {
-    holiday = holiday.filter(el => {
-      return el.month == month || el.month == pMonth || el.month == nMonth
-    });
-    holiday = holiday.map(el => {
-      return {
-        ...el,
-        class: el.class ? el.class : '',
-        hint: el.hint ? el.hint : [],
-        id: new Date(el.year, el.month, el.day).setHours(0, 0, 0, 0)
+    holiday = holiday.reduce((cArr, el) => {
+      if (el.month == month || el.month == pMonth || el.month == nMonth) {
+        return [
+          ...cArr,
+          {
+            ...el,
+            class: el.class ? el.class : '',
+            hint: el.hint ? el.hint : [],
+            id: new Date(el.year, el.month, el.day).setHours(0, 0, 0, 0)
+          }
+        ];
+      } else {
+        return cArr;
       }
-    });
+    }, []);
   }
 
   for (let i = 1; i <= stopDay; i++) {
@@ -70,7 +75,7 @@ export const dayForWeek = (year, month, stopDay, start, holiday) => {
     countDay.setHours(0, 0, 0, 0);
     className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
 
-    if(countDay.getTime() == calcCurD.curDate) {
+    if (countDay.getTime() == calcCurD.curDate) {
       className += ' curDate';
     }
 
@@ -101,6 +106,7 @@ export const dayForWeek = (year, month, stopDay, start, holiday) => {
 
     if (i == stopDay && countDay.getDay() <= 6) {
       let nextDay = buildPrevNextDays(year, month, countDay.getDay(), start, 'next');
+
       item = [
         ...item,
         ...nextDay
@@ -143,6 +149,7 @@ const buildPrevNextDays = (year, month, countDate, start, prevNext) => {
     );
 
     countDay.setHours(0, 0, 0, 0);
+
     let className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
     
     if(countDay.getTime() == calcCurD.curDate) {

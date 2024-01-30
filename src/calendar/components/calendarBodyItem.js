@@ -4,7 +4,14 @@ const CalendarBodyItem = ({ el, handleMouseOut, handleMouseOver, handleClick }) 
   let selfRef = useRef();
 
   return (
-    <div style = {{ width: '14.28571428571429%' }} className = { el.className.join(' ') } key = { el.id } onClick = { () => handleClick(el.time, selfRef) } onMouseOver = { () => handleMouseOver(el.time, selfRef) } onMouseOut = { () => handleMouseOut(el.time, selfRef) } ref = { selfRef }>
+    <div
+      className = { el.className.join(' ') }
+      key = { el.id }
+      onClick = { () => handleClick(el.time, selfRef) }
+      onMouseOver = { () => handleMouseOver(el.time, selfRef) }
+      onMouseOut = { () => handleMouseOut(el.time, selfRef) }
+      ref = { selfRef }
+    >
       <div className = 'calendar-body-day'>
         { el.day }
       </div>
