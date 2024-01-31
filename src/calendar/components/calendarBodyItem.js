@@ -1,6 +1,11 @@
 import React, { useRef } from 'react';
 
-const CalendarBodyItem = ({ el, handleMouseOut, handleMouseOver, handleClick }) => {
+const CalendarBodyItem = ({
+  el,
+  handleMouseOut,
+  handleMouseOver, 
+  handleClick
+}) => {
   let selfRef = useRef();
 
   return (

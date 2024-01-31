@@ -1,11 +1,12 @@
 const dayClass = ['calendar-body-col'];
 
 const calcCurDate = (month, year) => {
-  let curDate = new Date().setHours(0, 0, 0, 0);
-  let curMonth = new Date(curDate).getMonth();
-  let currYear = new Date(curDate).getFullYear()
+  const cDate = new Date();
+  const curDate = cDate.setHours(0, 0, 0, 0);
+  const curMonth = cDate.getMonth();
+  const currYear = cDate.getFullYear()
 
-  let isCurDate = curMonth == month && currYear == year;
+  const isCurDate = curMonth == month && currYear == year;
 
   return {
     isCurDate,
@@ -13,24 +14,25 @@ const calcCurDate = (month, year) => {
   }
 }
 
-const buildHolidayCal = (holiday, days) => {
-  let funkHoliday = [ ...holiday ];
+const buildHoliday = (holiday, days) => {
+  let fHoliday = [ ...holiday ];
   let funkDays = [ ...days ];
 
-  funkDays = funkDays.map(week => {
+  return funkDays.map(week => {
     return [
       ...week.map(day => {
-        let findHoliday = funkHoliday.filter(holEl => holEl.id == day.id);
-        if(findHoliday.length) {
+        const idxHoliday = fHoliday.findIndex(holEl => holEl.id == day.id);
+       
+        if (idxHoliday !== -1) {
           return {
             ...day,
             className: [
               ...day.className,
-              findHoliday[0].class ? findHoliday[0].class : 'holiday',
+              fHoliday[idxHoliday].class ? fHoliday[idxHoliday].class : 'holiday',
             ],
             hint: [
               ...day.hint,
-              ...findHoliday[0].hint
+              ...fHoliday[idxHoliday].hint
             ]
           }
         }
@@ -41,89 +43,29 @@ const buildHolidayCal = (holiday, days) => {
       })
     ]
   });
-
-  return funkDays;
 }
 
-export const dayForWeek = (year, month, stopDay, start, holiday) => {
-  let days = [[]];
-  let calcCurD = calcCurDate(month, year);
-  let pMonth = (month - 1) < 0 ? 11 : month - 1;
-  let nMonth = (month + 1) > 11 ? 0 : month + 1;
-
-  if (holiday.length) {
-    holiday = holiday.reduce((cArr, el) => {
-      if (el.month == month || el.month == pMonth || el.month == nMonth) {
-        return [
-          ...cArr,
-          {
-            ...el,
-            class: el.class ? el.class : '',
-            hint: el.hint ? el.hint : [],
-            id: new Date(el.year, el.month, el.day).setHours(0, 0, 0, 0)
-          }
-        ];
-      } else {
-        return cArr;
-      }
-    }, []);
-  }
-
-  for (let i = 1; i <= stopDay; i++) {
-    let countDay = new Date(year, month, i);
-    let className = '';
-    countDay.setHours(0, 0, 0, 0);
-    className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
-
-    if (countDay.getTime() == calcCurD.curDate) {
-      className += ' curDate';
+const sliceHoliday = ({ holiday, month, pMonth, nMonth }) => {
+  return holiday.reduce((cArr, el) => {
+    if (el.month == month || el.month == pMonth || el.month == nMonth) {
+      return [
+        ...cArr,
+        {
+          ...el,
+          class: el.class ? el.class : '',
+          hint: el.hint ? el.hint : [],
+          id: new Date(el.year, el.month, el.day).setHours(0, 0, 0, 0)
+        }
+      ];
+    } else {
+      return cArr;
     }
+  }, []);
+};
 
-    let item = [];
-
-    if (i == 1 && countDay.getDay() != start) {
-      let prevDay = buildPrevNextDays(year, month, countDay.getDay(), start, 'prev');
-
-      item = [
-        ...prevDay
-      ]
-    }
-
-    if(i != 0 && countDay.getDay() == start) {
-      days.push([]);
-    }
-
-    item = [
-      ...item,
-      {
-        id: countDay.getTime(),
-        time: countDay.getTime(),
-        day: countDay.getDate(),
-        className: [ ...dayClass, className ],
-        hint: []
-      }
-    ]
-
-    if (i == stopDay && countDay.getDay() <= 6) {
-      let nextDay = buildPrevNextDays(year, month, countDay.getDay(), start, 'next');
-
-      item = [
-        ...item,
-        ...nextDay
-      ]
-    }
-
-    days[days.length - 1].push(...item);
-  }
-
-  days = buildHolidayCal(holiday, days);
-
-  return days;
-}
-
-const buildPrevNextDays = (year, month, countDate, start, prevNext) => {
+const buildPrevNextDays = ({ year, month, countDate, startDayWeek, prevNext }) => {
   let days = [];
-  let stopCount = (prevNext == 'prev') ? (countDate - start) : (6 - countDate + start);
+  let stopCount = (prevNext == 'prev') ? (countDate - startDayWeek) : (6 - countDate + startDayWeek);
 
   let calcCurMonth = (prevNext == 'prev'
     ? (month - 1) < 0 ? 11 : month - 1
@@ -138,7 +80,7 @@ const buildPrevNextDays = (year, month, countDate, start, prevNext) => {
   let calcCurD = calcCurDate(calcCurMonth, calcCyrYear);
 
   stopCount = (prevNext == 'prev'
-    ? (stopCount < 0) ? ( 7 - start) : stopCount
+    ? (stopCount < 0) ? ( 7 - startDayWeek) : stopCount
     : stopCount = (stopCount == 7) ? 0 : stopCount
   );
 
@@ -151,8 +93,8 @@ const buildPrevNextDays = (year, month, countDate, start, prevNext) => {
     countDay.setHours(0, 0, 0, 0);
 
     let className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
-    
-    if(countDay.getTime() == calcCurD.curDate) {
+
+    if (countDay.getTime() == calcCurD.curDate) {
       className += ' curDate';
     }
 
@@ -174,11 +116,88 @@ const buildPrevNextDays = (year, month, countDate, start, prevNext) => {
   return days;
 }
 
-export const dayInMonth = (year, numbMonth) => {
-  const date = new Date(year, numbMonth + 1, 0);
+const fillingDays = ({ days, year, month, startDayWeek, stopDay }) => {
+  const countDay = new Date(year, month, 1);
+  countDay.setHours(0, 0, 0, 0);
 
-  return date.getDate();
+  if (days[0].length < 7) {
+    const prevDay = buildPrevNextDays({
+      year,
+      month,
+      startDayWeek,
+      prevNext: 'prev',
+      countDate: countDay.getDay(),
+    });
+
+    days[0] = [
+      ...prevDay,
+      ...days[0],
+    ]
+  }
+
+  if (days[days.length - 1].length < 7) {
+    countDay.setDate(stopDay)
+
+    const nextDay = buildPrevNextDays({
+      year,
+      month,
+      startDayWeek,
+      prevNext: 'next',
+      countDate: countDay.getDay(),
+    });
+
+    days[days.length - 1] = [
+      ...days[days.length - 1],
+      ...nextDay
+    ]
+  }
+
+  return days;
 }
+
+export const dayForWeek = ({ year, month, stopDay, startDayWeek, holiday }) => {
+  let days = [];
+  let calcCurD = calcCurDate(month, year);
+  const pMonth = (month - 1) < 0 ? 11 : month - 1;
+  const nMonth = (month + 1) > 11 ? 0 : month + 1;
+
+  if (holiday.length) {
+    holiday = sliceHoliday({ holiday, month, pMonth, nMonth });
+  }
+
+  for (let i = 1; i <= stopDay; i++) {
+    let countDay = new Date(year, month, i);
+    let className = '';
+
+    countDay.setHours(0, 0, 0, 0);
+    className = (countDay.getDay() == 0 || countDay.getDay() == 6) ? 'output' : '';
+
+    if (countDay.getTime() == calcCurD.curDate) {
+      className += ' curDate';
+    }
+
+    if (countDay.getDay() == startDayWeek) days.push([]);
+
+    const item = {
+      id: countDay.getTime(),
+      time: countDay.getTime(),
+      day: countDay.getDate(),
+      className: [ ...dayClass, className ],
+      hint: []
+    };
+
+    if (!days.length) days.push([]);
+
+    days[days.length - 1].push(item);
+  }
+
+  days = fillingDays({ days, year, month, startDayWeek, stopDay });
+  days = buildHoliday(holiday, days);
+
+  return days;
+}
+
+export const dayInMonth = (year, numbMonth) => new Date(year, numbMonth + 1, 0).getDate();
 
 export const numberDayInYear = (year, x) => {
   const curTime = new Date(Number(x));

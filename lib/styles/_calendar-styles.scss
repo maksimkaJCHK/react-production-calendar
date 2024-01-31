@@ -38,9 +38,14 @@
     background: var(--pc-head-bg);
     font: var(--pc-head-font);
   }
+  
+  $size: 100/7;
+
   &-day {
     width: 100%;
+    display: flex;
     &-col {
+      width: #{$size}#{'%'};
       padding: var(--pc-head-day-padding);
       background: var(--pc-head-day-bg);
       border: var(--pc-day-border);
@@ -68,7 +73,6 @@
       width: 100%;
     }
     &-col {
-      $size: 100/7;
       width: #{$size}#{'%'};
       position: relative;
       padding: var(--pc-cell-padding);
