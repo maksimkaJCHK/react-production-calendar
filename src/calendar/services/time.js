@@ -155,7 +155,19 @@ const fillingDays = ({ days, year, month, startDayWeek, stopDay }) => {
   return days;
 }
 
-export const dayForWeek = ({ year, month, stopDay, startDayWeek, holiday }) => {
+const revertArr = (arr) => {
+  const newArr = [ [], [], [], [], [], [], [] ];
+
+  arr.forEach((week) => {
+    week.forEach((day, cDay) => {
+      newArr[cDay].push(day);
+    });
+  });
+
+  return newArr;
+};
+
+export const dayForWeek = ({ year, month, stopDay, startDayWeek, holiday, verticalDay }) => {
   let days = [];
   let calcCurD = calcCurDate(month, year);
   const pMonth = (month - 1) < 0 ? 11 : month - 1;
@@ -193,6 +205,8 @@ export const dayForWeek = ({ year, month, stopDay, startDayWeek, holiday }) => {
 
   days = fillingDays({ days, year, month, startDayWeek, stopDay });
   days = buildHoliday(holiday, days);
+
+  if (verticalDay) days = revertArr(days);
 
   return days;
 }

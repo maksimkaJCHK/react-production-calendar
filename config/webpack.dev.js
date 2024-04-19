@@ -39,7 +39,7 @@ module.exports = merge(common, services, {
     historyApiFallback: true,
     compress: true,
     port: 8080,
-    open: true,
+    open: false,
     liveReload: true,
   },
 })

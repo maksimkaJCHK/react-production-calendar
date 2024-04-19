@@ -4,6 +4,8 @@ import CalendarDay  from './components/calendarDay.js';
 import CalendarBody from './components/calendarBody.js';
 import { monthClass } from './services/monthClass';
 
+import { dayInMonth, dayForWeek } from './services/time';
+
 const Calender = (props) => {
   const {
     lang = 'ru',
@@ -13,13 +15,29 @@ const Calender = (props) => {
     startDayWeek = 1,
     calClass = '',
     holiday = [],
+    verticalDay = false,
     handleClick = () => null,
     handleMouseOver = () => null,
     handleMouseOut = () => null
   } = props;
 
   const calMonth = month - 1;
+
+  const stopCount = dayInMonth(year, calMonth);
+  const days = dayForWeek({
+    year,
+    month: calMonth,
+    holiday,
+    startDayWeek,
+    verticalDay,
+    stopDay: stopCount,
+  });
+
   const calendarClass = `calendar ${monthClass[calMonth]} ${calClass}`;
+  const typeDayDisplay = verticalDay ? 'vertical' : 'horisontal';
+  let calDayDisplay = `calendar-day-display-${typeDayDisplay}`;
+
+  if (verticalDay) calDayDisplay += ` calendar-day-display-size-${days[0].length}`;
 
   return (
     <div className = { calendarClass }>
@@ -29,19 +47,18 @@ const Calender = (props) => {
         month = { calMonth }
         visibleYear = { visibleYear }
       />
-      <CalendarDay
-        startDayWeek = { startDayWeek }
-        lang = { lang }
-      />
-      <CalendarBody
-        startDayWeek = { startDayWeek }
-        year = { year }
-        month = { calMonth }
-        holiday = { holiday }
-        handleClick = { handleClick }
-        handleMouseOver = { handleMouseOver }
-        handleMouseOut = { handleMouseOut }
-      />
+      <div className = { calDayDisplay }>
+        <CalendarDay
+          startDayWeek = { startDayWeek }
+          lang = { lang }
+        />
+        <CalendarBody
+          days = { days }
+          handleClick = { handleClick }
+          handleMouseOver = { handleMouseOver }
+          handleMouseOut = { handleMouseOut }
+        />
+      </div>
     </div>
   )
 }

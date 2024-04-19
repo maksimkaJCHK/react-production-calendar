@@ -1,30 +1,16 @@
 import React from 'react';
-import { dayInMonth, dayForWeek } from '../services/time';
 import CalendarBodyItem from './calendarBodyItem';
 
 const CalendarBody = ({
-  year,
-  month,
-  startDayWeek,
-  holiday,
+  days,
   handleClick,
   handleMouseOver,
   handleMouseOut
 }) => {
-  const stopCount = dayInMonth(year, month);
-
-  const buildDays = dayForWeek({
-    year,
-    month,
-    holiday,
-    startDayWeek,
-    stopDay: stopCount,
-  });
-
   return (
     <div className = 'calendar-body'>
       {
-        buildDays.map((week, count) => {
+        days.map((week, count) => {
           return (
             <div
               key = { count }
