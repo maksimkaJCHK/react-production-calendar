@@ -1,49 +1,12 @@
 @import './color-palette.scss';
 
-:root {
-  // Цвет текста календаря, цвет бордеров, цвет подложки
-  --pc-text-color: #000;
-  --pc-border: 1px solid #{$grey-800};
-  --pc-cell-border: var(--pc-border);
-  --pc-day-border: var(--pc-border);
-  --pc-font: 16px/120% 'RobotoDraft';
-  --pc-bg: inherit;
-
-  // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
-  --pc-output-bf: #{$red-a200};
-  --pc-holiday-bg: #{$red-a400};
-
-  // Настройки текущей даты
-  --pc-curr-day-bg: #{$amber-a400};
-
-  // Подсказка, все стили которые с ней связаны
-  --pc-hint-width: 280px;
-}
-
 .calendar {
-  color: var(--pc-text-color);
   width: 100%;
   text-align: center;
-  border: var(--pc-border);
-  background: var(--pc-bg);
-  font: var(--pc-font);
 
-  .curDate {
-    .calendar-body-day {
-      background-color: var(--pc-curr-day-bg);
-    }
-  }
-  .output {
-    background-color: var(--pc-output-bf);
-  }
-  .holiday {
-    cursor: pointer;
-    background-color: var(--pc-holiday-bg);
-  }
   &-day {
     width: 100%;
     &-col {
-      border: var(--pc-day-border);
       border-right: none;
       border-bottom: none;
       &:first-of-type {
@@ -57,7 +20,6 @@
     }
     &-col {
       position: relative;
-      border: var(--pc-cell-border);
       border-right: none;
       border-bottom: none;
       &:first-of-type {
@@ -78,7 +40,6 @@
       left: -3000px;
       position: absolute;
       background-color: #fff;
-      width: var(--pc-hint-width);
     }
   }
   .prev,
@@ -87,6 +48,73 @@
       .calendar-body-hint {
         top: -3000px;
         left: -3000px;
+      }
+    }
+  }
+
+  @mixin sizeMix($value) {
+    grid-template-columns: repeat(#{$value + 1}, 1fr);
+    .calendar-body {
+      grid-column: span $value;
+    }
+    .calendar-body-row {
+      grid-template-columns: repeat($value, 1fr);
+    }
+  }
+
+  .calendar-day-display-size {
+    &-4 {
+      @include sizeMix(4);
+    }
+    &-5 {
+      @include sizeMix(5);
+    }
+    &-6 {
+      @include sizeMix(6);
+    }
+  }
+
+  &-day {
+    &-display {
+      &-horisontal {
+        .calendar {
+          &-day {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+          }
+          &-body  {
+            &-row {
+              display: grid;
+              grid-template-columns: repeat(7, 1fr);
+            }
+          }
+        }
+      }
+      &-vertical {
+        display: grid;
+        %padVertCol {
+          padding: 10% 0;
+        }
+        .calendar {
+          &-day {
+            width: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(7, 1fr);
+            &-col {
+              width: auto;
+              border-left: none;
+            }
+          }
+          &-body {
+            &-col {
+              width: auto;
+            }
+            &-row {
+              display: grid;
+            }
+          }
+        }
       }
     }
   }

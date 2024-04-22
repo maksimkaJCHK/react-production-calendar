@@ -11,19 +11,19 @@
 
   // Фон заголовка календаря, его внутренние отступы, параметры шрифта
   --pc-head-bg: #{$lime-200};
-  --pc-head-padding: 20px 0;
+  --pc-head-padding: 22px 0;
   --pc-head-font: inherit;
 
   // Фон Дней недели, внутренние отступы
   --pc-head-day-bg: #{$lime-300};
-  --pc-head-day-padding: 4% 0;
+  --pc-head-day-padding: 30% 0;
   --pc-head-day-font: inherit;
 
   // Фоны обычного дня, выходного дня и праздников, внутренние отступы, размер шрифта, размер дня (будет видно на текущей дате, межстрочный интервал для шрифта должен быть равен $dayHeight)
   --pc-day-bg: #{$light-green-300};
   --pc-output-bf: #{$red-a200};
   --pc-holiday-bg: #{$red-a400};
-  --pc-cell-padding: 2% 0;
+  --pc-cell-padding: 20% 0;
   --pc-day-width: 34px;
   --pc-day-height: 34px;
   --pc-day-font: inherit;

@@ -91,6 +91,13 @@
   .mdc-button {
     height: 36px;
   }
+
+  &-btn-block {
+    display: flex;
+    gap: 15px 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 900px) {

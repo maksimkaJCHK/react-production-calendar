@@ -1,7 +1,7 @@
 import React from 'react';
-import CalendarHead from './components/calendarHead.js';
-import CalendarDay  from './components/calendarDay.js';
-import CalendarBody from './components/calendarBody.js';
+import CalendarHead from './components/CalendarHead.js';
+import CalendarDay  from './components/CalendarDay.js';
+import CalendarBody from './components/CalendarBody.js';
 import { monthClass } from './services/monthClass';
 
 import { dayInMonth, dayForWeek } from './services/time';

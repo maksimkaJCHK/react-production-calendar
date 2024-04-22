@@ -1,5 +1,5 @@
 import React from 'react';
-import CalendarBodyItem from './calendarBodyItem';
+import CalendarBodyItem from './CalendarBodyItem';
 
 const CalendarBody = ({
   days,

@@ -40,16 +40,13 @@
     font: var(--pc-head-font);
   }
 
-  $size: 100/7;
-
   &-day {
     width: 100%;
-    display: flex;
+    display: grid;
     &-col {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: #{$size}#{'%'};
       padding: var(--pc-head-day-padding);
       background: var(--pc-head-day-bg);
       border: var(--pc-day-border);
@@ -64,7 +61,7 @@
 
   &-body {
     &-row {
-      display: flex;
+      display: grid;
     }
     &-day {
       font: var(--pc-day-font);
@@ -78,7 +75,6 @@
       width: 100%;
     }
     &-col {
-      width: #{$size}#{'%'};
       position: relative;
       padding: var(--pc-cell-padding);
       border: var(--pc-cell-border);
@@ -145,33 +141,51 @@
     }
   }
 
-  &-day-display-vertical {
-    display: grid;
-    %padVertCol {
-      padding: 10% 0;
-    }
-    .calendar {
-      &-day {
-        width: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, 1fr);
-        &-col {
-          @extend %padVertCol;
-          width: auto;
-          border-left: none;
-        }
-      }
-      &-body {
-        &-col {
-          @extend %padVertCol;
-          width: auto;
-          &:first-of-type {
-            border-left: var(--pc-cell-border);
+  &-day {
+    &-display {
+      &-horisontal {
+        .calendar {
+          &-day {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+          }
+          &-body  {
+            &-row {
+              display: grid;
+              grid-template-columns: repeat(7, 1fr);
+            }
           }
         }
-        &-row {
-          display: grid;
+      }
+      &-vertical {
+        display: grid;
+        %padVertCol {
+          padding: 10% 0;
+        }
+        .calendar {
+          &-day {
+            width: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(7, 1fr);
+            &-col {
+              @extend %padVertCol;
+              width: auto;
+              border-left: none;
+            }
+          }
+          &-body {
+            &-col {
+              @extend %padVertCol;
+              width: auto;
+              &:first-of-type {
+                border-left: var(--pc-cell-border);
+              }
+            }
+            &-row {
+              display: grid;
+            }
+          }
         }
       }
     }

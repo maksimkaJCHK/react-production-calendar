@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+
+import useType from './hooks/useType';
+
 import Calendar from '../index';
 import holiday from '../holidays/holiday';
+
+import ButtonDayPosition from './components/ButtonDayPosition.jsx';
 
 import '../../lib/styles/calendar.css';
 import './pages/exampleCalendar.scss';
@@ -11,19 +16,26 @@ const node = document.getElementById('app');
 const root = ReactDOM.createRoot(node);
 
 const SeasonsCalendar = () => {
-  const [ year, setYear ] = useState(2024);
-  const [ dayWeek, setDayWeek ] = useState(1);
-
-  const changeDayWeek = () => {
-    setDayWeek(prevVal => {
-      return prevVal == 1 ? 0 : 1
-    });
-  }
+  const {
+    year,
+    dayWeek,
+    vertDay,
+    changeDayWeek,
+    changeVertDay,
+  } = useType();
 
   return (
     <div className = 'exampleCalendar'>
       <h2>Календарь на { year } год</h2>
-      <button className = 'mdc-button' onClick = { changeDayWeek }>Изменить начальный день недели</button>
+
+      <div className="exampleCalendar-btn-block">
+        <ButtonDayPosition
+          changeDayWeek = { changeDayWeek }
+          changeVertDay = { changeVertDay }
+          vertDay = { vertDay }
+        />
+      </div>
+
       <div className = 'exampleCalendar-group'>
         {
           [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el) => (
@@ -34,6 +46,7 @@ const SeasonsCalendar = () => {
                 month = { el }
                 holiday = { holiday }
                 startDayWeek = { dayWeek }
+                verticalDay = { vertDay }
               />
             </div>
           ))

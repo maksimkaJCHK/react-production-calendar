@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+
 import Calendar from '../index';
 import birthdaysArr from './pages/birthdays';
-import findIndex from 'core-js/es/array/find-index';
 
 import '../../lib/styles/calendar.css';
 import './pages/exampleCalendar.scss';
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(node);
 
 const BirthayShedule = () => {
   const [ year, setYear ] = useState(2024);
-  const [ month, setMonth ] = useState( (new Date()).getMonth() + 1 );
+  const [ month, setMonth ] = useState((new Date()).getMonth() + 1);
 
   let [ param, setState ] = useState({
     birthdays: [
@@ -66,6 +66,7 @@ const BirthayShedule = () => {
     let year = date.getFullYear();
     let month = date.getMonth();
     let day = date.getDate();
+
     return {
       year,
       month,
@@ -74,8 +75,23 @@ const BirthayShedule = () => {
   }
 
   const renderDate = (time) => {
-    let ruMonth = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-    let date = returnDateParam(time);
+    const ruMonth = [
+      'января',
+      'февраля',
+      'марта',
+      'апреля',
+      'мая',
+      'июня',
+      'июля',
+      'августа',
+      'сентября',
+      'октября',
+      'ноября',
+      'декабря'
+    ];
+
+    const date = returnDateParam(time);
+
     return `${date.day} ${ruMonth[date.month]} ${date.year}`;
   }
 
@@ -253,6 +269,7 @@ const BirthayShedule = () => {
           <div className = "dateCheck">
             <div className = "prevM" onClick = { prevMonth }>&#9668;</div>
             <div className = "nextM" onClick = { nextMonth }>&#9658;</div>
+
             <Calendar
               visibleYear = { false }
               year = { year }

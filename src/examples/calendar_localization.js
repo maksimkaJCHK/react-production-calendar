@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+
+import useType from './hooks/useType';
+
 import Calendar from '../index';
 import holiday from '../holidays/holiday';
+
+import ButtonDayPosition from './components/ButtonDayPosition.jsx';
 
 import '../../lib/styles/calendar.css';
 import './pages/exampleCalendar.scss';
@@ -10,9 +15,16 @@ const node = document.getElementById('app');
 const root = ReactDOM.createRoot(node);
 
 const ProductionCalendar = () => {
-  const [ year, setYear ] = useState(2024);
-  let [ dayWeek, setDayWeek ] = useState(1);
-  let [ lang, setLang ] = useState('ru');
+  const {
+    year,
+    dayWeek,
+    vertDay,
+    // Изменение параметров
+    changeDayWeek,
+    changeVertDay,
+  } = useType();
+
+  const [ lang, setLang ] = useState('ru');
 
   const changeLang = (e) => {
     let langI = e.target.value;
@@ -21,16 +33,18 @@ const ProductionCalendar = () => {
     }
   }
 
-  const changeDayWeek = () => {
-    setDayWeek(prevVal => {
-      return prevVal == 1 ? 0 : 1
-    });
-  }
-
   return (
     <div className = 'exampleCalendar'>
       <h2>Календарь на { year } год</h2>
-      <button className = 'mdc-button' onClick = { changeDayWeek }>Изменить начальный день недели</button>
+
+      <div className="exampleCalendar-btn-block">
+        <ButtonDayPosition
+          changeDayWeek = { changeDayWeek }
+          changeVertDay = { changeVertDay }
+          vertDay = { vertDay }
+        />
+      </div>
+
       <div className = 'exampleCalendar-lang'>
         <input
           type = 'radio'
@@ -97,6 +111,7 @@ const ProductionCalendar = () => {
                 month = { el }
                 holiday = { holiday }
                 startDayWeek = { dayWeek }
+                verticalDay = { vertDay }
               />
             </div>
           ))
