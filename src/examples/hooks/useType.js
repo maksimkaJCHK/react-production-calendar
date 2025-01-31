@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const useType = (propMonth = 1) => {
-  const [ year ] = useState(2024);
+  const [ year ] = useState(2025);
   const [ dayWeek, setDayWeek ] = useState(1);
   const [ month, setMonth ] = useState(propMonth);
   const [ vertDay, setVertDay ] = useState(false);

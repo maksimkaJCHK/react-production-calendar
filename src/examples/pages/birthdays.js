@@ -1,4 +1,5 @@
-const year = 2023;
+const year = 2025;
+
 let birthdaysArr = [
   {
     "year": year,

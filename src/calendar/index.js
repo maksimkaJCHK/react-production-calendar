@@ -9,7 +9,7 @@ import { dayInMonth, dayForWeek } from './services/time';
 const Calender = (props) => {
   const {
     lang = 'ru',
-    year = '2024',
+    year = '2025',
     month = '1',
     visibleYear =  true,
     startDayWeek = 1,

@@ -12,7 +12,7 @@ const node = document.getElementById('app');
 const root = ReactDOM.createRoot(node);
 
 const BirthayShedule = () => {
-  const [ year, setYear ] = useState(2024);
+  const [ year, setYear ] = useState(2025);
   const [ month, setMonth ] = useState((new Date()).getMonth() + 1);
 
   let [ param, setState ] = useState({
