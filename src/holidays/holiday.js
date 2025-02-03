@@ -181,6 +181,17 @@ let holiday = [
   }, {
     year,
     month: 10,
+    day: 1,
+    class: 'workDay',
+    hint: [
+      {
+        title: 'Рабочий день.',
+        desc: 'Рабочий день, зато 3 ноября будем отдыхать.'
+      }
+    ]
+  }, {
+    year,
+    month: 10,
     day: 3,
     class: '',
     hint: [
@@ -189,7 +200,7 @@ let holiday = [
         desc: 'Выходной день.'
       }
     ]
-  }, , {
+  }, {
     year,
     month: 10,
     day: 4,
