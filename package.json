@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "buildextract": "cross-env NODE_ENV=production webpack --config config/webpack.prod.extract.js",
+    "build:extract": "cross-env NODE_ENV=production webpack --config config/webpack.prod.extract.js",
     "compile": "npm run compile-js && npm run compile-styles && npm run minifier",
     "compile-js": "babel src/calendar -d lib --copy-files && npm run minifier",
     "compile-styles": "node-sass --output-style compressed ./src/calendar/styles/ -o ./lib/styles/ ",
