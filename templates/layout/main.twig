@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>React production calendar</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500|Material+Icons">
+  {% block style %}{% endblock %}
 </head>
 <body>
   <div id="main">
@@ -13,7 +14,7 @@
       <div id="app"></div>
     </div>
   </div>
-  <script src="js/common.js"></script>
+  <script src="/react-production-calendar/js/common.js"></script>
   {% block script %}{% endblock %}
 </body>
 </html>
