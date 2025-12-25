@@ -38,7 +38,7 @@ const ExampleCalendar = () => {
       <div className = 'exampleCalendar-wrap'>
         <Calendar
           lang = 'ru'
-          year = { 2025 }
+          year = { 2026 }
           month = { month }
           visibleYear = { true }
           startDayWeek = { dayWeek }

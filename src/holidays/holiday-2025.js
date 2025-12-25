@@ -1,4 +1,4 @@
-const year = 2025;
+const year = 2026;
 const newYearText = 'В этом году новогодние каникулы продлятся 10 дней.';
 
 let holiday = [
