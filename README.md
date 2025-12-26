@@ -14,7 +14,10 @@ It's just a calendar, no frills. I really like bright colors, so I made it brigh
 
 In order to try this widget, there are 2 ways:
 
-- Type "npm install react-production-calendar" in the console;
+- Type in the console:
+  ```js
+  npm install react-production-calendar
+  ```
 - Download the project from [this repository](https://github.com/maksimkaJCHK/react-production-calendar).
 
 If you installed the widget via "npm", then you can connect it in the following way:
@@ -30,7 +33,7 @@ If you downloaded the project from github, then you can connect it in one of the
 
 And of course, the calendar is displayed in the following way:
 
-```
+```js
 <Calendar />
 ```
 
@@ -40,25 +43,25 @@ By default the widget will look like [like this](https://maksimkajchk.github.io/
 
 You can include the following CSS:
 
-```
+```js
 import 'react-production-calendar/lib/styles/calendar-reset-styles.css';
 ```
 
 Then the calendar will look like [like this](https://maksimkajchk.github.io/react-production-calendar/calendar-reset.html). Here are the most minimal styles, no padding. You will have to do all the styling yourself. I admit that this can be convenient if you have a calendar design, then you won’t need to mix up a lot of styles. But in general, I moved all frequently changed parameters into variables, and the calendar should be easy to configure.
 
-```
+```js
 import 'react-production-calendar/lib/styles/calendar-type.css';
 ```
 
 Then the calendar will look like [like this](https://maksimkajchk.github.io/react-production-calendar/calendar-type.html). Here the calendar more or less looks decent, but it will still need to be stylized.
 
-```
+```js
 import 'react-production-calendar/lib/styles/calendar-dark.css';
 ```
 
 Then the calendar will look like [like this](https://maksimkajchk.github.io/react-production-calendar/calendar-dark.html). A dark calendar theme is used here.
 
-```
+```js
 import 'react-production-calendar/lib/styles/calendar.css';
 ```
 
@@ -82,13 +85,13 @@ Then the calendar will look [like this](https://maksimkajchk.github.io/react-pro
 
 I recommend including this CSS file (the CSS variables described below are available for this include file):
 
-```
+```js
 import 'react-production-calendar/lib/styles/calendar.css';
 ```
 
 I use CSS variables to style the calendar. If anyone doesn't know what this is, I recommend checking out [this article](https://devdoc.net/web/developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables.html) . To avoid conflicts, I start all my calendar variables with "--pc". Just change the necessary variables for the block in which the calendar is located. By default I use the following values ​​for the variables.
 
-```
+```scss
 :root {
   // Calendar text color, border color, background color
   --pc-text-color: #000; // Text color for the calendar, default is black.
@@ -153,19 +156,19 @@ If you want to see what you can do with this calendar, here are the links:
 
 If you want to see the examples in more detail, then you should download [this repository](https://github.com/maksimkaJCHK/react-production-calendar). And type the command “npm install” in the console; naturally, you must have node.js installed. After installation, the following commands will be available:
 
-```
+```js
 npm run dev
 ```
 
 Run in developer mode, the local server will be available.
 
-```
+```js
 npm run build
 ```
 
 The scripts will be compiled and the local server will not be started.
 
-```
+```js
 npm run buildextract
 ```
 

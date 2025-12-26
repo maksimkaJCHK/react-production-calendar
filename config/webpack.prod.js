@@ -36,7 +36,7 @@ module.exports = merge(common, services, {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           name(module, chunks, cacheGroupKey) {
-           const allChunksNames = chunks.map((item) => item.name).join('-');
+            const allChunksNames = chunks.map((item) => item.name).join('-');
             return `common`;
           },
           chunks: 'all'
